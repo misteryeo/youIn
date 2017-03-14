@@ -2,12 +2,15 @@
   "name": "youin",
   "version": "1.0.0",
   "description": "greenfield",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack -d --watch",
     "build": "webpack -p"
   },
+  "keywords": [
+    "heroku"
+  ],
   "author": "anthony, david, gus, nick",
   "license": "ISC",
   "dependencies": {
