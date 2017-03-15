@@ -1,7 +1,12 @@
 import React from 'react';
 import {render} from 'react-dom';
+import EventList from './EventList.jsx';
 
 class App extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
   render () {
     return (
       <div>
@@ -9,10 +14,13 @@ class App extends React.Component {
         <button>Create Event</button>
         <br /><br />
         Here is where owner events will go <br/>
-        Owner Event List item will go here
+         Owner's Events: <br/>
+        <EventList />
+
         <br /><br />
         Here is where friend events will go <br/>
-        Friend Event list item will go here
+        Friend's Events: <br/>
+        <EventList />
       </div>
     )
           
