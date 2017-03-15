@@ -1,32 +1,43 @@
 const users = [
   {
+    username: 'abianco3',
     firstname: 'Anthony',
-    lastname: 'Bianco'
+    lastname: 'Bianco',
+    email: 'anthony.bianco3@gmail.com'
   },
 
    {
+    username: 'nkbelow',
     firstname: 'Nick',
-    lastname: 'Below'
+    lastname: 'Below',
+    email: 'nkbelow@gmail.com'
   },
 
    {
+    username: 'david.brodie',
     firstname: 'David',
-    lastname: 'Brodie'
+    lastname: 'Brodie',
+    email: 'david.brodie122@gmail.com'
   },
    {
+    username: 'augustus',
     firstname: 'Gus',
-    lastname: 'Brennan'
+    lastname: 'Brennan',
+    email: 'augustusmb@gmail.com'
   },
 
    {
+    username: 'FredZFred',
     firstname: 'Fred',
-    lastname: 'Zirdung'
+    lastname: 'Zirdung',
+    email: 'fred@hackreactor.com'
   },
 ];
 const events = [
   {
     owner: 1,
-    title: 'Beach Party',
+    title: 'I Wanna Go To The Beach',
+    'short_desc': 'Beach Party',
     description: 'Let\'s go to Ocean Beach while the sun is out! BYOB and don\'t joke about sharks, I\'ll kick you out for real.',
     location: 'Ocean Beach, SF, right off the N Judah.',
     date: '2017-03-14',
@@ -35,7 +46,8 @@ const events = [
   },
   {
     owner: 2,
-    title: 'BBQ',
+    title: 'Pig, Beer, and Bocce Ball',
+    'short_desc': 'BBQ',
     description: 'Vegan Only; don\'t be a jerk about it.',
     location: '456 Fillmore Street, San Francisco, CA 94117',
     date: '2017-03-14',
@@ -44,7 +56,8 @@ const events = [
   },
   {
     owner: 5,
-    title: 'Movie',
+    title: 'Moonlight at 8',
+    'short_desc': 'Movie',
     description: 'Let\'s go see Moonlight',
     location: 'Downtown AMC Metreon',
     date: '2017-03-14',
