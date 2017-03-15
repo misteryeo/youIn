@@ -31,7 +31,7 @@ const users = [
     firstname: 'Fred',
     lastname: 'Zirdung',
     email: 'fred@hackreactor.com'
-  }
+  } 
 ];
 const events = [
   {
