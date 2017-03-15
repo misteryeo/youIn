@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 module.exports = (db) => {
-  db.queryAsync('CREATE TABLE IS NOT EXISTS events (\
+  db.queryAsync('CREATE TABLE IF NOT EXISTS events (\
     event_id int auto-increment not null PRIMARY KEY,\
     owner INT NOT NULL,\
     title varChar(50),\
@@ -20,7 +20,7 @@ module.exports = (db) => {
       email varChar(50)');
   })
   .then(() => {
-    return db.queryAsync('CREATE TABLE IF NOT EXISTS users_event (\
+    return db.queryAsync('CREATE TABLE IF NOT EXISTS users_events (\
       event_id int not null,\
       user_id int not null,\
       in? enum("pending", "accepted", "rejected")');
