@@ -1,13 +1,13 @@
 import React from 'react';
 
-const EventListItem = (props) => (
+const OwnerEventListItem = (props) => (
 
   <div>
     {props.event.title}
   </div>
 )
 
-export default EventListItem;
+export default OwnerEventListItem;
 
 
   

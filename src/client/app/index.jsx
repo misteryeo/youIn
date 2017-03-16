@@ -1,6 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import EventList from './EventList.jsx';
+import OwnerEventList from './OwnerEventList.jsx';
+import FriendEventList from './FriendEventList.jsx';
+
 
 class App extends React.Component {
   constructor(props){
@@ -51,11 +53,13 @@ class App extends React.Component {
         <br /><br />
         Here is where owner events will go <br/>
          Owner's Events: <br/>
-        <EventList ownerEventsArr={this.state.ownerEvents}/>
+        <OwnerEventList ownerEventsArr={this.state.ownerEvents}/>
 
         <br /><br />
         Here is where friend events will go <br/>
         Friend's Events: <br/>
+        <FriendEventList friendEventsArr={this.state.friendEvents}/>
+
       </div>
     )
           
