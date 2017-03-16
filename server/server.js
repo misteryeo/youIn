@@ -13,6 +13,8 @@ app.get('/', function(req, res) {
   res.send('this is a get route');
 });
 
+app.get('/events', handler.getEvents);
+
 app.post('/events', handler.createEvent);
 
 app.listen(port, function() {

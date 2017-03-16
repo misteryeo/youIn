@@ -8,7 +8,7 @@ const database = 'youin';
 let connection = mysql.createConnection({
     user: 'root',
     password: '',
-    database: 'youin'
+
 });
 
 let db = Promise.promisifyAll(connection, {multiArgs: true});
