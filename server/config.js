@@ -1,3 +1,5 @@
+'use strict';
+
 const Promise = require('bluebird');
 const mysql = require('mysql');
 const makeSchema = require('./schema.js');

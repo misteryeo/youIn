@@ -1,4 +1,6 @@
-const users = [
+'use strict';
+
+let users = [
   {
     username: 'abianco3',
     firstname: 'Anthony',
@@ -33,7 +35,7 @@ const users = [
     email: 'fred@hackreactor.com'
   } 
 ];
-const events = [
+let events = [
   {
     owner: 1,
     title: 'I Wanna Go To The Beach',
@@ -66,70 +68,70 @@ const events = [
   }
 ];
 
-const usersEvents = [
+let usersEvents = [
   {
-    event: 1,
-    user: 2,
-    'in?': pending
+    event_id: 1,
+    user_id: 2,
+    'status': 'pending'
   },
   {
-    event: 1,
-    user: 3,
-    'in?': pending
+    event_id: 1,
+    user_id: 3,
+    'status': 'pending'
   },
   {
-    event: 1,
-    user: 4,
-    'in?': rejected
+    event_id: 1,
+    user_id: 4,
+    'status': 'rejected'
   },
   {
-    event: 1,
-    user: 5,
-    'in?': pending
+    event_id: 1,
+    user_id: 5,
+    'status': 'pending'
   },
   {
-    event: 2,
-    user: 1,
-    'in?': accepted
+    event_id: 2,
+    user_id: 1,
+    'status': 'accepted'
   },
   {
-    event: 2,
-    user: 3,
-    'in?': rejected
+    event_id: 2,
+    user_id: 3,
+    'status': 'rejected'
   },
   {
-    event: 2,
-    user: 4,
-    'in?': accepted
+    event_id: 2,
+    user_id: 4,
+    'status': 'accepted'
   },
   {
-    event: 2,
-    user: 5,
-    'in?': pending
+    event_id: 2,
+    user_id: 5,
+    'status': 'pending'
   },
   {
-    event: 3,
-    user: 1,
-    'in?': rejected
+    event_id: 3,
+    user_id: 1,
+    'status': 'rejected'
   },
   {
-    event: 3,
-    user: 2,
-    'in?': accepted
+    event_id: 3,
+    user_id: 2,
+    'status': 'accepted'
   },
   {
-    event: 3,
-    user: 3,
-    'in?': pending
+    event_id: 3,
+    user_id: 3,
+    'status': 'pending'
   },
   {
-    event: 3,
-    user: 4,
-    'in?': accepted
+    event_id: 3,
+    user_id: 4,
+    'status': 'accepted'
   },
 ];
 
 module.exports.users = users;
 module.exports.events = events;
-module.exports.userEvents = userEvents;
+module.exports.usersEvents = usersEvents;
 
