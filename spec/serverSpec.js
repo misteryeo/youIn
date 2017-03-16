@@ -10,17 +10,19 @@ describe('', function() {
   let db;
 
   const clearTables = ( connection, tableNames, done ) => {
-    
-    let count = 0;
 
-    tableNames.forEach( (table) => {
+    tableNames.forEach( (table, i) => {
       // if table exits, drop the table
-      count++;
-      connection.queryAsync('DROP TABLE IF EXISTS ?', [table])
-      .then( () => {
-        if (count === tableNames.length){
-          schema(connection)
-          .then(done); 
+
+      connection.query('DROP TABLE IF EXISTS ' + table, function() {
+        if (i === tableNames.length - 1){
+          schema(db)
+          .then( () => {
+            return done();
+          })
+          .catch((err) => {
+            return done(err);
+          });
         }
       });
     });
@@ -40,8 +42,9 @@ describe('', function() {
       
       if (err) {
         console.log(err)
-        return done(err);
+        return done();
       } else {
+        console.log('this is where we are');
         clearTables(db, tables, done);
       }
     });
@@ -58,37 +61,48 @@ describe('', function() {
       lastname: 'Bianco',
       email: 'anthony.bianco3@gmail.com'
     };
+
+    let invalidUser = {
+      facebookID: 5,
+      name: 'nick',
+      username: 'below',
+      email: 'asdfasdf',
+      password: 'adfasdf',
+      phone: 12345677890,
+      fax: 1234567890
+    };
   
     // insert correct data into table
     it('should not throw error when validUser is inserted', (done) => {
-      db.queryAsync('INSERT into USERS SET ?', [...validUser])
+      return db.queryAsync('INSERT into USERS SET ?', validUser)
         .then( () => {
           validDataThrowsError = false;
         })
-        .error( () => {
+        .error( (err) => {
           validDataThrowsError = true;
+        })
+        .then( () => {
+          expect(validDataThrowsError).to.be.false;
+          done();
         });
-      expect(validDataThrowsError).to.be(false);
-      done();
     });
     
-    for (let prop of validUser) {
-      let user = validUser;
-      user[prop] = 12345;
+    it('should throw an error when inserting invalid data', (done) => {
+      return db.queryAsync('INSERT into USERS SET ?', invalidUser)
+        .then ( () => {
+          console.log('hello world');
+          invalidDataThrowsError = false;
+        })
+        .error( (err) => {
+          console.error(err);
+          invalidDataThrowsError = true;
+        })
+        .then( () => {
+          expect(invalidDataThrowsError).to.be.true;
+          done();
+        });
 
-      it('should throw an error when inserting invalid data', (done) => {
-        db.queryAsync('INSERT into USER SET ?', [...user])
-          .then ( () => {
-            invalidDataThrowsError = false;
-          })
-          .error( () => {
-            invalidDataThrowsError = true;
-          });
-
-        expect(invalidDataThrowsError).to.be(true);
-        done();
-      });
-    }
+    });
         
   });
 });
