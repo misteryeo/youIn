@@ -129,3 +129,7 @@ const usersEvents = [
   },
 ];
 
+module.exports.users = users;
+module.exports.events = events;
+module.exports.userEvents = userEvents;
+
