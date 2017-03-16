@@ -47,13 +47,13 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>You In?</h1>
-        <button>Create Event</button>
+      <div className="container">
+        <h1 className="page-header">You In?</h1>
+        <button className="btn-danger col-md-4 col-md-offset-4">Create Event</button>
         <br /><br />
         Here is where owner events will go <br/>
          Owner's Events: <br/>
-        <OwnerEventList ownerEventsArr={this.state.ownerEvents}/>
+        <OwnerEventList  ownerEventsArr={this.state.ownerEvents}/>
 
         <br /><br />
         Here is where friend events will go <br/>
