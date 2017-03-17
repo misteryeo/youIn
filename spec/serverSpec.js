@@ -73,7 +73,7 @@ describe('', function() {
     };
   
     // insert correct data into table
-    it('should not throw error when validUser is inserted', (done) => {
+    it('should not throw error when validUser is inserted', () => {
       return db.queryAsync('INSERT into USERS SET ?', validUser)
         .then( () => {
           validDataThrowsError = false;
@@ -83,11 +83,10 @@ describe('', function() {
         })
         .then( () => {
           expect(validDataThrowsError).to.be.false;
-          done();
         });
     });
     
-    it('should throw an error when inserting invalid data', (done) => {
+    it('should throw an error when inserting invalid data', () => {
       return db.queryAsync('INSERT into USERS SET ?', invalidUser)
         .then ( () => {
           console.log('hello world');
@@ -99,7 +98,6 @@ describe('', function() {
         })
         .then( () => {
           expect(invalidDataThrowsError).to.be.true;
-          done();
         });
 
     });

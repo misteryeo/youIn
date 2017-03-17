@@ -4,7 +4,7 @@
   "description": "greenfield",
   "main": "server.js",
   "scripts": {
-    "test": "mocha spec/serverSpec.js",
+    "test": "mocha --compilers js:babel-register --bail --reporter nyan spec/serverSpec.js; pkill -n node;",
     "dev": "webpack -d --watch",
     "build": "webpack -p"
   },
