@@ -7,7 +7,7 @@ const database = 'youin';
 
 let connection = mysql.createConnection({
     user: 'root',
-    password: '',
+    password: ''
 
 });
 

@@ -51,13 +51,15 @@ class App extends React.Component {
         <h1 className="page-header">You In?</h1>
         <button className="btn-danger col-md-4 col-md-offset-4">Create Event</button>
         <br /><br />
-        Here is where owner events will go <br/>
-         Owner's Events: <br/>
+        <div className='container'>
+        <h2 className='col-md-4 col-md-offset-4'> MyEventsList</h2>
+        </div>
         <OwnerEventList  ownerEventsArr={this.state.ownerEvents}/>
 
         <br /><br />
-        Here is where friend events will go <br/>
-        Friend's Events: <br/>
+        <div className='container'>
+        <h2 className='col-md-4 col-md-offset-4'> FriendEventList</h2>
+        </div>
         <FriendEventList friendEventsArr={this.state.friendEvents}/>
 
       </div>
