@@ -44,7 +44,8 @@ let events = [
     location: 'Ocean Beach, SF, right off the N Judah.',
     date: '2017-03-14',
     time: '05:30:00',
-    attendees: 10
+    attendees: 10,
+    min: 5
   },
   {
     owner: 2,
@@ -54,7 +55,8 @@ let events = [
     location: '456 Fillmore Street, San Francisco, CA 94117',
     date: '2017-03-14',
     time: '17:45:00',
-    attendees: 3
+    attendees: 3,
+    min: 15
   },
   {
     owner: 5,
@@ -64,7 +66,8 @@ let events = [
     location: 'Downtown AMC Metreon',
     date: '2017-03-14',
     time: '20:00:00',
-    attendees: 6
+    attendees: 6,
+    min: 5
   }
 ];
 

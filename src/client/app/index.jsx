@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import OwnerEventList from './OwnerEventList.jsx';
 import FriendEventList from './FriendEventList.jsx';
+import CreateEventButton from './CreateEventButton.jsx';
 
 
 class App extends React.Component {
@@ -50,7 +51,7 @@ class App extends React.Component {
       <div className="container">
         <div className="page-header"><h1>You In?</h1></div>
         <button className="logout">Log out</button>
-        <button className="btn-danger col-md-4 col-md-offset-4">Create Event</button>
+        <CreateEventButton />
         <br /><br />
         <div className='container'>
         <h2 className='col-md-4 col-md-offset-4'> MyEventsList</h2>
