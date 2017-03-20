@@ -3,12 +3,15 @@ import {render} from 'react-dom';
 import OwnerEventList from './OwnerEventList.jsx';
 import FriendEventList from './FriendEventList.jsx';
 import CreateEventButton from './CreateEventButton.jsx';
+import {users as friends} from '../../../server/data.js';
 
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      friends: friends.slice(0, 4),
+
       ownerEvents: [
         {
           owner: 1,
@@ -49,10 +52,11 @@ class App extends React.Component {
   render () {
     return (
       <div className="container">
-        <div className="page-header">
-          <button id="logout">Log out</button>
-        </div>
-        <CreateEventButton />
+
+        <div className="page-header"><h1>You In?</h1></div>
+        <button className="logout">Log out</button>
+        <CreateEventButton friends={this.state.friends}/>
+
         <br /><br />
 
         <div className='container events'>
