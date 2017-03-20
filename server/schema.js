@@ -16,7 +16,8 @@ module.exports = (db) => {
     location varChar(255),\
     date DATE,\
     time TIME,\
-    attendees INT);')
+    attendees INT,\
+    min INT);')
   .then(() => {
     return db.queryAsync('CREATE TABLE IF NOT EXISTS users (\
       user_id INT auto_increment not null PRIMARY KEY,\
