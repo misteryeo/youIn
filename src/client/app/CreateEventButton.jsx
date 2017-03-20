@@ -109,8 +109,7 @@ class CreateEventButton extends React.Component {
                 {
                   this.props.friends.map( friend => (
                     <FriendsListItem 
-                      friend={friend}
-                      handleClick={this.handleClick}/>
+                      friend={friend}/>
                     )
                   )
                 }
