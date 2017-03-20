@@ -15,7 +15,7 @@ class FriendDetailedView extends React.Component {
     const friends = ['Anthony', 'David', 'Nick', 'Gus'];
 
     return (
-      <div className="row">
+      <div className="row list-item">
         <div className="col-md-8 col-md-offset-1">
           <p>{this.props.event.description}</p>
           <p>{this.props.event.location}</p>
