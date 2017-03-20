@@ -1,11 +1,18 @@
 import React from 'react';
 import {render} from 'react-dom';
+import FriendsListItem from './FriendsListItem.jsx';
 import Modal from 'boron/dropModal';
 
 class CreateEventButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: '',
+      what: '',
+      where: '',
+      when: '',
+      min: '',
+      invitees: [],
     }
   }
   
@@ -19,6 +26,16 @@ class CreateEventButton extends React.Component {
 
   callback (event) {
     console.log(event);
+  }
+
+  handleChange (name, event) {
+    let newState = {};
+    newState[name] = event.target.value;
+    this.setState(newState);
+  }
+
+  handleClick (event) {
+
   }
 
   render () {
@@ -35,7 +52,10 @@ class CreateEventButton extends React.Component {
                       <h4>Title</h4>
                     </div>
                     <div className="col-md-9">
-                      <input type="text" />
+                      <input 
+                        value={this.state.title} 
+                        type="text"
+                        onChange={this.handleChange.bind(this, 'title')} />
                     </div>
                   </div>
                   <div className="row">
@@ -43,7 +63,10 @@ class CreateEventButton extends React.Component {
                       <h4>What?</h4>
                     </div>
                     <div className="col-md-9">
-                      <input type="text" />
+                      <input 
+                        value={this.state.what}
+                        onChange={this.handleChange.bind(this, 'what')}
+                        type="text" />
                     </div>
                   </div>
                   <div className="row">
@@ -51,7 +74,10 @@ class CreateEventButton extends React.Component {
                       <h4>Where?</h4>
                     </div>
                     <div className="col-md-9">
-                      <input type="text" />
+                      <input 
+                        value={this.state.where}
+                        onChange={this.handleChange.bind(this, 'where')}
+                        type="text" />
                     </div>
                   </div>
                   <div className="row">
@@ -59,7 +85,10 @@ class CreateEventButton extends React.Component {
                       <h4>When?</h4>
                     </div>
                     <div className="col-md-9">
-                      <input type="text" />
+                      <input 
+                        value={this.state.when}
+                        onChange={this.handleChange.bind(this, 'then')}
+                        type="text" />
                     </div>
                   </div>
                   <div className="row">
@@ -67,13 +96,23 @@ class CreateEventButton extends React.Component {
                       <h4>Min?</h4>
                     </div>
                     <div className="col-md-9">
-                      <input type="text" />
+                      <input 
+                        value={this.state.min}
+                        onChange={this.handleChange.bind(this, 'min')}
+                        type="text" />
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col-md-3">
                 <h4>Friends</h4>
+                {
+                  this.props.friends.map( friend => (
+                    <FriendsListItem 
+                      friend={friend}/>
+                    )
+                  )
+                }
               </div>
             </div>
             <div className="row">
@@ -84,6 +123,11 @@ class CreateEventButton extends React.Component {
             <div className="row">
               <div className="col-md-12">
                 <input type="text" />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <button type="submit">See Who's In!</button>
               </div>
             </div>
           </div>
