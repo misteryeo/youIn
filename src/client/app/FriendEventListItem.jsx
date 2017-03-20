@@ -1,4 +1,5 @@
 import React from 'react';
+import FriendDetailedView from './FriendDetailedView.jsx';
 
 class FriendEventListItem extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class FriendEventListItem extends React.Component {
         <span className="col-md-4">{this.props.event.title}</span>
         <span className="col-md-4">{this.props.event.date} at {this.props.event.time}</span>
         <span className="col-md-3">{this.props.event.attendees}<span> people IN</span></span>
-        {this.state.clicked ? 'clicked' : '' }
+        {this.state.clicked ? <FriendDetailedView /> : '' }
         <br/>
       </div>
     );
