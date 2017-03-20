@@ -12,6 +12,14 @@
   float: right;
 }
 
+body { 
+  background: url(./media_lib/outdoors1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 h2 {
 	vertical-align: text-bottom;
   text-align: center;
@@ -26,7 +34,7 @@ h2 {
 .events {
   border: 5px solid #db0939;
   border-radius: 5px;
-  background-color: #db3939;
+  background-color: rgba(219, 57, 57, 0.7);
 }
 
 .selected {
