@@ -49,21 +49,20 @@ class App extends React.Component {
   render () {
     return (
       <div className="container">
-        <div className="page-header"><h1>You In?</h1></div>
-        <button className="logout">Log out</button>
+        <div className="page-header">
+          <button id="logout">Log out</button>
+        </div>
         <CreateEventButton />
         <br /><br />
-        <div className='container'>
-        <h2 className='col-md-4 col-md-offset-4'> MyEventsList</h2>
-        </div>
+      <div className='container'>
+      <h2 className='col-md-4 col-md-offset-4'> MyEventsList</h2>
+      </div>
         <OwnerEventList  ownerEventsArr={this.state.ownerEvents}/>
-
         <br /><br />
         <div className='container'>
-        <h2 className='col-md-4 col-md-offset-4'> FriendEventList</h2>
+          <h2 className='col-md-4 col-md-offset-4'> FriendEventList</h2>
         </div>
-        <FriendEventList friendEventsArr={this.state.friendEvents}/>
-
+          <FriendEventList friendEventsArr={this.state.friendEvents}/>
       </div>
     )
 
