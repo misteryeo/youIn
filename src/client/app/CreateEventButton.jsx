@@ -29,8 +29,15 @@ class CreateEventButton extends React.Component {
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-9">
-                <input type="text" placeholder="Witty Title Goes Here" />
                 <div className="container-fluid">
+                  <div className="row">
+                    <div className="col-md-3">
+                      <h4>Title</h4>
+                    </div>
+                    <div className="col-md-9">
+                      <input type="text" />
+                    </div>
+                  </div>
                   <div className="row">
                     <div className="col-md-3">
                       <h4>What?</h4>
@@ -67,6 +74,16 @@ class CreateEventButton extends React.Component {
               </div>
               <div className="col-md-3">
                 <h4>Friends</h4>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-3">
+                <h4>Description: </h4>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <input type="text" />
               </div>
             </div>
           </div>
