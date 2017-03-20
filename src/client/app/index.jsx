@@ -3,7 +3,10 @@ import {render} from 'react-dom';
 import OwnerEventList from './OwnerEventList.jsx';
 import FriendEventList from './FriendEventList.jsx';
 import CreateEventButton from './CreateEventButton.jsx';
+import Signup from './Signup.jsx';
+import Homepage from './Homepage.jsx';
 import {users as friends} from '../../../server/data.js';
+
 
 
 class App extends React.Component {
@@ -11,7 +14,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       friends: friends.slice(0, 4),
-
+      loggedIn: false,
+      newUser: false,
       ownerEvents: [
         {
           owner: 1,
@@ -50,35 +54,28 @@ class App extends React.Component {
   }
 
   render () {
-    return (
-      <div className="container">
 
-        <div className="page-header"><h1>You In?</h1></div>
-        <button className="logout">Log out</button>
-        <CreateEventButton friends={this.state.friends}/>
-
-        <br /><br />
-
-        <div className='container events'>
-          <h2 className='header-inner'> MyEventsList</h2>
-          <OwnerEventList  ownerEventsArr={this.state.ownerEvents}/>
-        </div>
-        
-
-        <br /><br />
-        <div className='container events'>
-          <h2 className='header-inner'> FriendEventList</h2>
-          <FriendEventList friendEventsArr={this.state.friendEvents}/>
-        </div>
-      </div>
-    )
       /*return (
         <div className='container'>
           <div className='page-header'>
             </div>
             <Facebook />
-            </div> 
+            </div>
       )*/
+
+    if (this.state.newUser) {
+      return (
+        <Signup />
+      )
+    } else {
+      return (
+        <Homepage
+        ownerEvents={this.state.ownerEvents}
+        friendEvents={this.state.friendEvents}
+        friends={this.state.friends}
+        />
+      )
+    }
   }
 }
 

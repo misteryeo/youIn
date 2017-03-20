@@ -1,3 +1,4 @@
+
 .page-header {
   background: #a1172d url(./media_lib/youInLogo.png) 50% 50% no-repeat;
   border-radius: 8px;
@@ -7,13 +8,25 @@
 
 }
 
+#newUser {
+  background-color: #a1172d;
+  border-radius: 8px;
+  height: 150px;
+  color: white;
+  display: flex;
+  align-items: center;
+  float: center;
+    justify-content: center;
+
+}
+
 #logout {
   color: black;
   float: right;
 }
 
-body { 
-  background: url(./media_lib/outdoors1.jpg) no-repeat center center fixed; 
+body {
+  background: url(./media_lib/outdoors1.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -21,7 +34,7 @@ body {
 }
 
 h2 {
-	vertical-align: text-bottom;
+  vertical-align: text-bottom;
   text-align: center;
   color: white;
   font-family: Roboto, sans-serif;
@@ -40,3 +53,4 @@ h2 {
 .selected {
   background-color: #438CFF;
 }
+
