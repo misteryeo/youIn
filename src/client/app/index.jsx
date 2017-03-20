@@ -70,12 +70,15 @@ class App extends React.Component {
           <h2 className='header-inner'> FriendEventList</h2>
           <FriendEventList friendEventsArr={this.state.friendEvents}/>
         </div>
-        
-
-
       </div>
     )
-
+      /*return (
+        <div className='container'>
+          <div className='page-header'>
+            </div>
+            <Facebook />
+            </div> 
+      )*/
   }
 }
 
