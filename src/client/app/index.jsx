@@ -54,15 +54,17 @@ class App extends React.Component {
         <CreateEventButton />
         <br /><br />
         <div className='container'>
-        <h2 className='col-md-4 col-md-offset-4'> MyEventsList</h2>
+          <h2 className='header-inner'> MyEventsList</h2>
+          <OwnerEventList  ownerEventsArr={this.state.ownerEvents}/>
         </div>
-        <OwnerEventList  ownerEventsArr={this.state.ownerEvents}/>
+        
 
         <br /><br />
         <div className='container'>
-        <h2 className='col-md-4 col-md-offset-4'> FriendEventList</h2>
+          <h2 className='header-inner'> FriendEventList</h2>
+          <FriendEventList friendEventsArr={this.state.friendEvents}/>
         </div>
-        <FriendEventList friendEventsArr={this.state.friendEvents}/>
+        
 
       </div>
     )
