@@ -53,14 +53,14 @@ class App extends React.Component {
         <button className="logout">Log out</button>
         <CreateEventButton />
         <br /><br />
-        <div className='container'>
+        <div className='container events'>
           <h2 className='header-inner'> MyEventsList</h2>
           <OwnerEventList  ownerEventsArr={this.state.ownerEvents}/>
         </div>
         
 
         <br /><br />
-        <div className='container'>
+        <div className='container events'>
           <h2 className='header-inner'> FriendEventList</h2>
           <FriendEventList friendEventsArr={this.state.friendEvents}/>
         </div>
