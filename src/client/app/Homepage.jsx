@@ -9,7 +9,7 @@ const Homepage = (props) => (
       <div className="page-header">
         <button id="logout">Log out</button>
       </div>
-      <CreateEventButton />
+      <CreateEventButton friends={props.friends}/>
       <br /><br />
       <div className='container events'>
         <h2 className='header-inner'> MyEventsList</h2>

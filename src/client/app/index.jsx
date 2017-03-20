@@ -72,6 +72,7 @@ class App extends React.Component {
         <Homepage
         ownerEvents={this.state.ownerEvents}
         friendEvents={this.state.friendEvents}
+        friends={this.state.friends}
         />
       )
     }
