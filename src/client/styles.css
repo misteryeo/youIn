@@ -1,13 +1,15 @@
 .page-header {
-  background-color: #a1172d;
+  background: #a1172d url(./media_lib/youInLogo.png) 50% 50% no-repeat;
+  border-radius: 8px;
   height: 150px;
+  color: white;
+  vertical-align: middle;
+
 }
 
-h1 {
-  vertical-align: text-bottom;
-  text-align: center;
-  color: white;
-  font-style: sans-serif;
+#logout {
+  color: black;
+  float: right;
 }
 
 h2 {
