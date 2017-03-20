@@ -74,6 +74,7 @@ class CreateEventButton extends React.Component {
               </div>
               <div className="col-md-3">
                 <h4>Friends</h4>
+                {this.props.friends.map( friend => <h5>{friend.firstname}</h5>)}
               </div>
             </div>
             <div className="row">
@@ -84,6 +85,11 @@ class CreateEventButton extends React.Component {
             <div className="row">
               <div className="col-md-12">
                 <input type="text" />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <button type="submit">See Who's In!</button>
               </div>
             </div>
           </div>
