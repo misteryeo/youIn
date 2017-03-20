@@ -12,7 +12,19 @@
   float: right;
 }
 
+h2 {
+	vertical-align: text-bottom;
+  text-align: center;
+  color: white;
+  font-family: Roboto, sans-serif;
+}
+
 .list-item {
   font-size: 150%;
 }
 
+.events {
+  border: 5px solid #db0939;
+  border-radius: 5px;
+  background-color: #db3939;
+}
