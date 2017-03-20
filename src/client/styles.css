@@ -8,6 +8,18 @@
 
 }
 
+#newUser {
+  background-color: #a1172d;
+  border-radius: 8px;
+  height: 150px;
+  color: white;
+  display: flex;
+  align-items: center;
+  float: center;
+    justify-content: center;
+
+}
+
 #logout {
   color: black;
   float: right;
