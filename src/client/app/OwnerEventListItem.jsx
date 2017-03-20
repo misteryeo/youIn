@@ -7,6 +7,7 @@ const OwnerEventListItem = (props) => (
     <span className="list-item col-md-4">{props.event.title}</span>
     <span className="list-item col-md-4">{props.event.date} at {props.event.time}</span>
     <span className="list-item col-md-3">{props.event.attendees}<span> people IN</span></span>
+    <br/>
   </div>
 )
 
