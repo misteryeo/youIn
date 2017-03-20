@@ -12,10 +12,13 @@ class FriendDetailedView extends React.Component {
   //insert methods here
 
   render() {
+    const friends = ['Anthony', 'David', 'Nick', 'Gus'];
 
     return (
-      <div>
-        Detailed View
+      <div className="col-md-11 col-md-offset-1">
+        {this.props.event.description}
+        <br/>
+        {this.props.event.location}
       </div>
     );
   }

@@ -23,7 +23,7 @@ class FriendEventListItem extends React.Component {
         <span className="col-md-4">{this.props.event.title}</span>
         <span className="col-md-4">{this.props.event.date} at {this.props.event.time}</span>
         <span className="col-md-3">{this.props.event.attendees}<span> people IN</span></span>
-        {this.state.clicked ? <FriendDetailedView /> : '' }
+        {this.state.clicked ? <FriendDetailedView event={this.props.event}/> : '' }
         <br/>
       </div>
     );
