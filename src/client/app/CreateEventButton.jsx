@@ -54,14 +54,14 @@ class CreateEventButton extends React.Component {
       min: this.state.min
     }
   $.ajax({
-    url: '/events',
+    url: '/events123',
     method: 'POST',
     data: eventData,
     success: function(data) {
       console.log('data from ajax in CreateEventButton', data);
     },
     error: function(err) {
-      console.log(err);
+      console.log('error in ajax request in CreateEventButton', err);
     }
   })
     
