@@ -13,7 +13,7 @@ class Signup extends React.Component {
   render () {
 
     return (<div>
-      <h1 id="newUser">Yeah You're In!</h1>
+      <h1 id="newUser">Yeah You're In! Signup </h1>
       <br></br><br></br><br></br>
 
     </div>)
