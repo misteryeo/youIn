@@ -5,6 +5,7 @@ import FriendEventList from './FriendEventList.jsx';
 import CreateEventButton from './CreateEventButton.jsx';
 import Signup from './Signup.jsx';
 import Homepage from './Homepage.jsx';
+import Facebook from './Facebook.jsx';
 import {users as friends} from '../../../server/data.js';
 
 
@@ -63,9 +64,9 @@ class App extends React.Component {
             </div>
       )*/
 
-    if (this.state.newUser) {
+    if (true) {
       return (
-        <Signup />
+        <Facebook />
       )
     } else {
       return (
