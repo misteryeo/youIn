@@ -8,7 +8,7 @@
     "start": "node server/server.js",
     "dev": "webpack -d --watch",
     "build": "webpack -p",
-    "heroku-postbuild": "webpack -p --config ./webpack.config.js"
+    "heroku-postinstall": "webpack -p --config ./webpack.config.js"
   },
   "keywords": [
     "heroku"
