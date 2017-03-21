@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register --bail --reporter nyan spec/serverSpec.js; pkill -n node;",
-    "start": "node server/server.js",
+    "start": "nodemon server/server.js",
     "dev": "webpack -d --watch",
     "build": "webpack",
     "heroku-postbuild": "webpack --config ./webpack.config.js --progress"
