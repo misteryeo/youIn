@@ -7,6 +7,7 @@ import Signup from './Signup.jsx';
 import Homepage from './Homepage.jsx';
 import Facebook from './Facebook.jsx';
 import {users as friends} from '../../../server/data.js';
+import Facebook from './Facebook.jsx';
 
 
 
@@ -56,27 +57,21 @@ class App extends React.Component {
 
   render () {
 
-      /*return (
-        <div className='container'>
-          <div className='page-header'>
-            </div>
-            <Facebook />
-            </div>
-      )*/
-
-    if (true) {
-      return (
-        <Facebook />
-      )
-    } else {
-      return (
-        <Homepage
-        ownerEvents={this.state.ownerEvents}
-        friendEvents={this.state.friendEvents}
-        friends={this.state.friends}
-        />
-      )
+    let toRender = null;
+    if      (this.state.newUser)   { toRender = <Signup /> }
+    else if (!this.state.loggedIn) { toRender = <Facebook /> }
+    else { toRender =
+      <Homepage
+      ownerEvents={this.state.ownerEvents}
+      friendEvents={this.state.friendEvents}
+      friends={this.state.friends}
+      />
     }
+
+    return (<div>
+      {toRender}
+      </div>
+    )
   }
 }
 

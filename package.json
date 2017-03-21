@@ -7,8 +7,8 @@
     "test": "mocha --compilers js:babel-register --bail --reporter nyan spec/serverSpec.js; pkill -n node;",
     "start": "node server/server.js",
     "dev": "webpack -d --watch",
-    "build": "webpack -p",
-    "heroku-postbuild": "webpack -p --config ./webpack.config.js"
+    "build": "webpack",
+    "heroku-postbuild": "webpack --config ./webpack.config.js --progress"
   },
   "keywords": [
     "heroku"
