@@ -7,7 +7,6 @@ import Signup from './Signup.jsx';
 import Homepage from './Homepage.jsx';
 import Facebook from './Facebook.jsx';
 import {users as friends} from '../../../server/data.js';
-import Facebook from './Facebook.jsx';
 
 
 
