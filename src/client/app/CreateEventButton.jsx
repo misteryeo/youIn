@@ -9,12 +9,16 @@ class CreateEventButton extends React.Component {
     super(props);
     this.state = {
       title: '',
-      what: '',
+      what: 'food-drinks',
       where: '',
-      when: '',
+      date: '',
+      time: '',
       min: '',
       invitees: [],
+      description: ''
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   showModal () {
@@ -35,8 +39,20 @@ class CreateEventButton extends React.Component {
     this.setState(newState);
   }
 
-  handleClick (event) {
-
+  handleSubmit (event) {
+    event.preventDefault();
+    let eventData = {
+      owner: '1',//this is hardcoded - we need to have the owner come from who is logged in.
+      title: this.state.title,
+      short_desc: this.state.what,
+      description: this.state.description,
+      location: this.state.where,
+      date: this.state.date,
+      time: this.state.time,
+      attendees: this.state.invitees,
+      min: this.state.min
+    }
+    
   }
 
   render () {
@@ -45,29 +61,34 @@ class CreateEventButton extends React.Component {
         <button onClick={this.showModal.bind(this)} className="btn-danger col-md-4 col-md-offset-4">Create Event</button>
         <Modal ref="modal">
           <div className="container-fluid">
+          <form onSubmit={this.handleSubmit.bind(this)}>
             <div className="row">
               <div className="col-md-9">
                 <div className="container-fluid">
                   <div className="row">
                     <div className="col-md-3">
-                      <h4>Title</h4>
+                      <h4>Give your event a title</h4>
+                      <p>Let 'em know what you're doing in 1-3 words</p>
                     </div>
                     <div className="col-md-9">
                       <input 
                         value={this.state.title} 
                         type="text"
-                        onChange={this.handleChange.bind(this, 'title')} />
+                        onChange={this.handleChange.bind(this, 'title')} required/>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-3">
-                      <h4>What?</h4>
+                      <h4>Pick an event category</h4>
                     </div>
                     <div className="col-md-9">
-                      <input 
-                        value={this.state.what}
-                        onChange={this.handleChange.bind(this, 'what')}
-                        type="text" />
+                    <select value={this.state.what} onChange={this.handleChange.bind(this, 'what')} required>
+                      <option value="food-drinks" >Food/Drinks</option>
+                      <option value="indoor-activity">Indoor Activity</option>
+                      <option value="outdoor-activity">Outdoor Activity</option>
+                      <option value="hangout">Hangout</option>
+                      <option value="other">Other</option>
+                    </select>
                     </div>
                   </div>
                   <div className="row">
@@ -78,7 +99,7 @@ class CreateEventButton extends React.Component {
                       <input 
                         value={this.state.where}
                         onChange={this.handleChange.bind(this, 'where')}
-                        type="text" />
+                        type="text" required/>
                     </div>
                   </div>
                   <div className="row">
@@ -87,20 +108,24 @@ class CreateEventButton extends React.Component {
                     </div>
                     <div className="col-md-9">
                       <input 
-                        value={this.state.when}
-                        onChange={this.handleChange.bind(this, 'then')}
-                        type="text" />
+                        value={this.state.date}
+                        onChange={this.handleChange.bind(this, 'date')}
+                        type="date" required/>
+                      <input 
+                      value={this.state.time}
+                      onChange={this.handleChange.bind(this, 'time')}
+                      type="time" required/>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-3">
-                      <h4>Min?</h4>
+                      <h4>Minimum friends for this event?</h4>
                     </div>
                     <div className="col-md-9">
                       <input 
                         value={this.state.min}
                         onChange={this.handleChange.bind(this, 'min')}
-                        type="text" />
+                        type="text" required/>
                     </div>
                   </div>
                 </div>
@@ -124,7 +149,10 @@ class CreateEventButton extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-12">
-                <input type="text" />
+                <input
+                value={this.state.description}
+                onChange={this.handleChange.bind(this, 'description')} 
+                type="text" required/>
               </div>
             </div>
             <div className="row">
@@ -132,6 +160,7 @@ class CreateEventButton extends React.Component {
                 <button type="submit">See Who's In!</button>
               </div>
             </div>
+            </form>
           </div>
         </Modal>
       </div>
@@ -140,3 +169,9 @@ class CreateEventButton extends React.Component {
 }
 
 export default CreateEventButton;
+
+
+                      // <input 
+                      //   value={this.state.what}
+                      //   onChange={this.handleChange.bind(this, 'what')}
+                      //   type="text" />
