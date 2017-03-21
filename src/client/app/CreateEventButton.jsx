@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import FriendsListItem from './FriendsListItem.jsx';
 import Modal from 'boron/DropModal';
+import $ from 'jquery';
 
 //trying to force a webpack build
 class CreateEventButton extends React.Component {
@@ -52,6 +53,17 @@ class CreateEventButton extends React.Component {
       attendees: this.state.invitees,
       min: this.state.min
     }
+  $.ajax({
+    url: '/events',
+    method: 'POST',
+    data: eventData,
+    success: function(data) {
+      console.log('data from ajax in CreateEventButton', data);
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  })
     
   }
 
