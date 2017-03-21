@@ -108,8 +108,9 @@ class CreateEventButton extends React.Component {
               <div className="col-md-3">
                 <h4>Friends</h4>
                 {
-                  this.props.friends.map( friend => (
-                    <FriendsListItem 
+                  this.props.friends.map( (friend, i) => (
+                    <FriendsListItem
+                      key={i} 
                       friend={friend}/>
                     )
                   )
