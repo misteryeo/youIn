@@ -1,6 +1,6 @@
 
 .page-header {
-  background: #a1172d url(./media_lib/youInLogo.png) 50% 50% no-repeat;
+  background: rgba(161, 23, 45, 0.7) url(./media_lib/youInLogo.png) 50% 50% no-repeat;
   border-radius: 8px;
   height: 150px;
   color: white;
