@@ -7,6 +7,7 @@ import Signup from './Signup.jsx';
 import Homepage from './Homepage.jsx';
 import {users as friends} from '../../../server/data.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import Facebook from './Facebook.jsx';
 
 
 
