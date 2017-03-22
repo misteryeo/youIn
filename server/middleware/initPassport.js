@@ -7,11 +7,11 @@ passport.use(new FacebookTokenStrategy({
   clientID: config.facebookAuth.clientId,
   clientSecret: config.facebookAuth.clientSecret
 }, function(accessToken, refreshToken, profile, done) {
-  let id = profile.id;
+  let id = +profile.id;
   db.queryAsync('SELECT * FROM users WHERE user_id = ?', [id])
     .then((user) => {
       if (user[0].length > 0) {
-        done(null, user[0]);
+        done(null, user[0][0]);
       } else {
         let user = {
           user_id: +profile.id,
@@ -26,7 +26,7 @@ passport.use(new FacebookTokenStrategy({
           .then( (result) => {
             db.queryAsync('SELECT * FROM users WHERE user_id = ?', [user.user_id])
               .then( (user) => {
-                 done(null, user[0]);
+                 done(null, user[0][0]);
               })
           })
           .error( (err) => {
@@ -50,7 +50,7 @@ passport.serializeUser(function(user, done){
 passport.deserializeUser(function(id, done){
     db.queryAsync('SELECT * FROM users WHERE user_id = ?', [id])
     .then( (user) => {
-      done(null, user[0])
+      done(null, user[0][0])
     })
 });
 
