@@ -72,11 +72,11 @@ class App extends React.Component {
           return ( <Homepage ownerEvents={this.state.ownerEvents}
             friendEvents={this.state.friendEvents} friends={this.state.friends}/>)
         }} />
-        </div>
-        </Router>
-
+      </div>
+      </Router>
+    )
   }
-  
+
 }
 
 render(<App/>, document.getElementById('app'));
