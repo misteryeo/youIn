@@ -18,8 +18,6 @@ class FriendEventListItem extends React.Component {
   }
 
   onAcceptClick () {
-    console.log('ACCEPTED CLICK');
-    console.log(this.state.accepted);
     this.setState({ accepted: true, rejected: false });
   }
 
