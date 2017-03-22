@@ -14,7 +14,7 @@ let connection = mysql.createConnection({
 let db = Promise.promisifyAll(connection, {multiArgs: true});
 
 db.connectAsync().then(() => {
-  console.log('You are connect to database' + database);
+  console.log('You are connected to database' + database);
   return db.queryAsync('CREATE DATABASE IF NOT EXISTS ' + database);
 }).then(() => {
   return db.queryAsync('USE ' + database);

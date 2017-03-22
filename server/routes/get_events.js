@@ -1,6 +1,6 @@
 'use strict'
 
-const db = require('../config.js');
+let db = require('../config.js');
 
 //query database to get all events
 

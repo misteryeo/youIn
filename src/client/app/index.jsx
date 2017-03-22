@@ -11,6 +11,7 @@ import Facebook from './Facebook.jsx';
 
 
 
+
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -54,6 +55,12 @@ class App extends React.Component {
       ]
     }
   }
+  
+  login() {
+    this.setState({
+      loggedIn: true
+    })
+  }
 
   render () {
     return (
@@ -67,7 +74,7 @@ class App extends React.Component {
         }} />
         </div>
         </Router>
-    )
+
   }
   
 }

@@ -59,15 +59,16 @@ statusChangeCallback(response) {
     // Logged into your app and Facebook.
     this.testAPI();
     this.props.history.push('/homepage');
+
   } else if (response.status === 'not_authorized') {
     // The person is logged into Facebook, but not your app.
-    document.getElementById('status').innerHTML = 'Please log ' +
-      'into this app.';
+    // document.getElementById('status').innerHTML = 'Please log ' +
+    //   'into this app.';
   } else {
     // The person is not logged into Facebook, so we're not sure if
     // they are logged into this app or not.
-    document.getElementById('status').innerHTML = 'Please log ' +
-    'into Facebook.';
+    // document.getElementById('status').innerHTML = 'Please log ' +
+    // 'into Facebook.';
   }
 }
 
@@ -88,6 +89,7 @@ handleClick() {
        <div className='container'>
        <div className='page-header'>
        </div>
+<<<<<<< 611042380bfeb11dd182de6a64c23fbf3db7dbf7
        <div className='col-md-4 col-md-offset-4 login'>
        <h2> Login </h2>
        <div className='row center'>
@@ -102,6 +104,11 @@ handleClick() {
       </div>
       </div>
       
+=======
+      <button data-max-rows="1" data-size="xlarge" 
+      data-show-faces="false" data-auto-logout-link="false" onClick={this.handleClick.bind(this)}>
+      </button>
+>>>>>>> skeleton for initializing passport
       </div>
       )
   }
