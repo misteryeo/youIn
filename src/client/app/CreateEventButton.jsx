@@ -56,7 +56,8 @@ class CreateEventButton extends React.Component {
   $.ajax({
     url: '/events123',
     method: 'POST',
-    data: eventData,
+    data: JSON.stringify(eventData),
+    contentType: 'application/json',
     success: function(data) {
       console.log('data from ajax in CreateEventButton', data);
     },

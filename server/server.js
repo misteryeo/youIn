@@ -2,14 +2,14 @@
 
 let express = require('express');
 let handler = require('./routes/request_handler');
-let bodyParser = require('body-parser');
+let bodyParser = require('body-parser').json();
 let path = require('path');
 
 let app = express();
 let port = process.env.PORT || 8080;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser);
+
 
 app.use('/', express.static(path.join(__dirname, '../src/client')));
 
