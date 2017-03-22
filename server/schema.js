@@ -20,7 +20,8 @@ module.exports = (db) => {
     min INT);')
   .then(() => {
     return db.queryAsync('CREATE TABLE IF NOT EXISTS users (\
-      user_id INT auto_increment not null PRIMARY KEY,\
+      user_id BIGINT not null PRIMARY KEY,\
+      token varChar(200),\
       username varChar(50),\
       firstname varChar(50),\
       lastname varChar(50),\
