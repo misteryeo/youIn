@@ -16,7 +16,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      friends: friends.slice(0, 4),
+      friends: friends.slice(0, 5),
       loggedIn: true,
       newUser: false,
       ownerEvents: [
