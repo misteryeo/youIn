@@ -5,7 +5,9 @@ class FriendEventListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false
+      clicked: false,
+      accepted: false,
+      rejected: false
     }
     //bind methods here
     this.handleClickListItem = this.handleClickListItem.bind(this);
@@ -15,18 +17,33 @@ class FriendEventListItem extends React.Component {
     this.setState({clicked: !this.state.clicked});
   }
 
+  onAcceptClick () {
+    this.setState({ accepted: true, rejected: false });
+  }
+
+  onRejectClick() {
+    this.setState({ accepted: false, rejected: true });
+
+  }
+
   render() {
+
+    let accepted = this.state.accepted === true ? "accepted" : null;
+    let rejected = this.state.rejected === true ? "rejected" : null;
 
     return (
       <div>
       <div className="panel list-item " onClick={this.handleClickListItem}>
-        <span className="glyphicon glyphicon-globe col-md-1"></span> 
-        <span className="col-md-4">{this.props.event.title}</span>
-        <span className="col-md-4">{this.props.event.date} at {this.props.event.time}</span>
-        <span className="col-md-3">{this.props.event.attendees}<span> people IN</span></span>
+        <span className="glyphicon glyphicon-globe col-md-1"></span>
+        <span className={`${accepted} ${rejected} col-md-4`}>{this.props.event.title}</span>
+        <span className={`${accepted} ${rejected} col-md-4`}>{this.props.event.date} at {this.props.event.time}</span>
+        <span className={`${accepted} ${rejected} col-md-3`}>{this.props.event.attendees}<span> people IN</span></span>
         <br/>
       </div>
-        {this.state.clicked ? <FriendDetailedView event={this.props.event}/> : '' }
+        {this.state.clicked ? <FriendDetailedView
+          onIn={this.onAcceptClick.bind(this)}
+          onOut={this.onRejectClick.bind(this)}
+          event={this.props.event}/> : '' }
       </div>
     );
   }
