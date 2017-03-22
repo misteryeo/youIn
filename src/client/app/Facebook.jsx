@@ -7,7 +7,7 @@ class Facebook extends React.Component {
   componentDidMount() {
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : 'APP ID KEY',
+      appId      : '1286128124802062',
       cookie     : true,  // enable cookies to allow the server to access
                         // the session
       xfbml      : true,  // parse social plugins on this page

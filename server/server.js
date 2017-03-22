@@ -10,11 +10,16 @@ let port = process.env.PORT || 8080;
 
 app.use(bodyParser);
 
+
 app.use('/', express.static(path.join(__dirname, '../src/client')));
 
 app.get('/events', handler.getEvents);
 
-app.post('/events', handler.createEvent);
+app.post('/events123', function(req, res) {
+  console.log('request on events', req.body);
+
+  res.send();
+});
 
 app.listen(port, function() {
   console.log('we are now listening on: ' + port);
