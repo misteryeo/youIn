@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter, history, Link} from 'react-router-dom';
 
 class Facebook extends React.Component {
   constructor(props) {
@@ -57,6 +58,7 @@ statusChangeCallback(response) {
   if (response.status === 'connected') {
     // Logged into your app and Facebook.
     this.testAPI();
+    this.props.history.push('/homepage');
   } else if (response.status === 'not_authorized') {
     // The person is logged into Facebook, but not your app.
     document.getElementById('status').innerHTML = 'Please log ' +
@@ -79,16 +81,27 @@ checkLoginState() {
 }
 
 handleClick() {
-  FB.login(this.checkLoginState());
+  FB.login(this.statusChangeCallback.bind(this), {scope: 'public_profile, email'});
 }
   render() {
     return (
        <div className='container'>
        <div className='page-header'>
        </div>
-      <div className="fb-login-button" data-max-rows="1" data-size="xlarge" 
+       <div className='col-md-4 col-md-offset-4 login'>
+       <h2> Login </h2>
+       <div className='row center'>
+       <button className="loginBtn loginBtn--facebook" data-max-rows="1" data-size="xlarge" 
       data-show-faces="false" data-auto-logout-link="false" onClick={this.handleClick.bind(this)}>
+      Login with Facebook</button>
       </div>
+      <div className='row center'>
+      <Link to='/signup'>New User? Sign Up Here</Link>
+      </div>
+      <div id='status'>
+      </div>
+      </div>
+      
       </div>
       )
   }
