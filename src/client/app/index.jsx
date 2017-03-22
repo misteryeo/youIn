@@ -6,7 +6,7 @@ import CreateEventButton from './CreateEventButton.jsx';
 import Signup from './Signup.jsx';
 import Homepage from './Homepage.jsx';
 import {users as friends} from '../../../server/data.js';
-import Facebook from './Facebook.jsx';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 
 
@@ -55,24 +55,20 @@ class App extends React.Component {
   }
 
   render () {
-
-    let toRender = null;
-
-    if      (this.state.newUser)   { toRender = <Signup /> }
-    else if (!this.state.loggedIn) { toRender = <Facebook /> }
-    else { toRender =
-      <Homepage
-      ownerEvents={this.state.ownerEvents}
-      friendEvents={this.state.friendEvents}
-      friends={this.state.friends}
-      />
-    }
-
-    return (<div>
-      {toRender}
-      </div>
+    return (
+      <Router>
+      <div>
+        <Route exact path='/' component={Facebook} />
+        <Route path='/signup' component={Signup} />
+        <Route path='/homepage' component={(props) => {
+          return ( <Homepage ownerEvents={this.state.ownerEvents}
+            friendEvents={this.state.friendEvents} friends={this.state.friends}/>)
+        }} />
+        </div>
+        </Router>
     )
   }
+  
 }
 
 render(<App/>, document.getElementById('app'));
