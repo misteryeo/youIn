@@ -50,7 +50,7 @@ class CreateEventButton extends React.Component {
       location: this.state.where,
       date: this.state.date,
       time: this.state.time,
-      attendees: this.state.invitees,
+      attendees: this.state.invitees.length,
       min: this.state.min
     }
   $.ajax({
@@ -121,7 +121,6 @@ class CreateEventButton extends React.Component {
                     />
                 </div>
                         
-
                 <div className="col-md-4">
                   <h4>Invite Friends</h4>
                   {
