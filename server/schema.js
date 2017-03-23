@@ -43,6 +43,8 @@ module.exports = (db) => {
       user2 int not null);')
   })
   .catch( (err) => {
-    console.log(err);
+    if (err.code !== '42710') {
+      throw err;
+    }
   });
 };
