@@ -35,6 +35,9 @@ app.get('/test', passport.authenticate('facebook-token'), function(req, res) {
   }
 });
 
+app.get('*', function (req, res){
+  res.sendFile(path.resolve(__dirname, '../src/client', 'index.html'));
+});
 app.listen(port, function() {
   console.log('we are now listening on: ' + port);
 });
