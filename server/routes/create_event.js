@@ -14,7 +14,7 @@ module.exports = function(req, res) {
 
   console.log('inside create_event', event);
   // query the database for events
-  db.queryAsync('INSERT into EVENTS SET ?', event)
+  db.query('INSERT into EVENTS SET ?', event)
   .then( (result) => {
     console.log('result from queryasync', result)
     res.status(201).json(result);
