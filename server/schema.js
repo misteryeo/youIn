@@ -9,6 +9,11 @@ module.exports = (db) => {
   // }
 
   return db.query('CREATE type status AS ENUM(\'pending\', \'accepted\', \'rejected\');')
+  .catch( (err) => {
+    if (err.code !== '42710') {
+      throw err;
+    }
+  })
   .then( () => {
     return db.query('CREATE TABLE IF NOT EXISTS events (\
       event_id SERIAL not null PRIMARY KEY,\
@@ -41,10 +46,5 @@ module.exports = (db) => {
     return db.query('CREATE TABLE IF NOT EXISTS friends (\
       user1 int not null,\
       user2 int not null);')
-  })
-  .catch( (err) => {
-    if (err.code !== '42710') {
-      throw err;
-    }
   });
 };
