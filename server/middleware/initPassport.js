@@ -8,36 +8,34 @@ passport.use(new FacebookTokenStrategy({
   clientSecret: config.facebookAuth.clientSecret
 }, function(accessToken, refreshToken, profile, done) {
   let id = +profile.id;
-  db.queryAsync('SELECT * FROM users WHERE user_id = ?', [id])
+  db.query('SELECT * FROM users WHERE user_id = $1', [id])
     .then((user) => {
-      if (user[0].length > 0) {
-        done(null, user[0][0]);
+      if (user.length > 0) {
+        done(null, user[0]);
       } else {
         let user = {
           user_id: +profile.id,
           token: accessToken,
-          username: profile.username,
           firstname: profile.name.givenName,
           lastname: profile.name.familyName,
+          photoUrl: profile.photos[0].value,
           email: (profile.emails[0].value || '').toLowerCase()
         };
 
-        db.queryAsync('INSERT INTO users SET ?', user)
+        db.query('INSERT INTO users VALUES (${user_id}, ${token}, ${firstname}, ${lastname}, ${photoUrl}, ${email})', user)
           .then( (result) => {
-            db.queryAsync('SELECT * FROM users WHERE user_id = ?', [user.user_id])
+            db.query('SELECT * FROM users WHERE user_id = $1', [user.user_id])
               .then( (user) => {
                  done(null, user[0][0]);
               })
           })
-          .error( (err) => {
+          .catch( (err) => {
             done(err, false, {message: 'Facebook authorization failed'});
           })
         }
     })
-    .error( (err) => {
-    })
     .catch( (err) => {
-      console.log('it fails in catch')
+      console.log(err, 'it fails in catch')
       done(err, null);
     });
   }
@@ -48,9 +46,9 @@ passport.serializeUser(function(user, done){
 });
 
 passport.deserializeUser(function(id, done){
-    db.queryAsync('SELECT * FROM users WHERE user_id = ?', [id])
+    db.query('SELECT * FROM users WHERE user_id = $1', [id])
     .then( (user) => {
-      done(null, user[0][0])
+      done(null, user[0])
     })
 });
 
