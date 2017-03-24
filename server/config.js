@@ -13,7 +13,7 @@ const database = 'youin';
 // });
 
 //let db = Promise.promisifyAll(connection, {multiArgs: true});
-
+console.log(process.env.DATABASE_URL);
 let db = pgp({
   host: process.env.DATABASE_URL
 });
