@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, history, Link} from 'react-router-dom';
 import { ajaxSetup } from 'jquery';
-
+console.log(window.location);
 class Facebook extends React.Component {
   constructor(props) {
     super(props)
