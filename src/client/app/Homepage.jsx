@@ -5,6 +5,7 @@ import CreateEventButton from './CreateEventButton.jsx';
 import LogoutButton from './LogoutButton.jsx';
 
 const Homepage = (props) => (
+
   <div>
     <div className="container">
       <div className="page-header">
@@ -19,7 +20,7 @@ const Homepage = (props) => (
         <br /><br />
       <div className='container events'>
         <h2 className='header-inner'> FriendEventList</h2>
-        <FriendEventList friendEventsArr={props.friendEvents}/>
+        <FriendEventList accessToken={props.accessToken} friendEventsArr={props.friendEvents}/>
       </div>
     </div>
   </div>

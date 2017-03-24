@@ -1,6 +1,5 @@
 import React from 'react';
 import FriendDetailedView from './FriendDetailedView.jsx';
-
 class FriendEventListItem extends React.Component {
   constructor(props) {
     super(props);
@@ -41,6 +40,7 @@ class FriendEventListItem extends React.Component {
         <br/>
       </div>
         {this.state.clicked ? <FriendDetailedView
+          accessToken={this.props.accessToken}
           onIn={this.onAcceptClick.bind(this)}
           onOut={this.onRejectClick.bind(this)}
           event={this.props.event}/> : '' }

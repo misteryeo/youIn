@@ -65,6 +65,8 @@ statusChangeCallback(response) {
         xhr.setRequestHeader('Authorization', 'Bearer ' + response.authResponse.accessToken)
       }
     })
+    // console.log(response.authResponse.accessToken, 'this is the access token');
+    this.props.setToken(response.authResponse.accessToken);
     this.props.history.push('/homepage');
 
   } else if (response.status === 'not_authorized') {

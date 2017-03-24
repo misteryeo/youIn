@@ -19,8 +19,10 @@ class App extends React.Component {
       friends: friends.slice(0, 5),
       loggedIn: true,
       newUser: false,
+      facebookToken: '',
       ownerEvents: [
         {
+          event_id: 1,
           owner: 1,
           title: 'I Wanna Go To The Beach',
           'short_desc': 'Beach Party',
@@ -33,6 +35,7 @@ class App extends React.Component {
       ],
       friendEvents: [
         {
+          event_id: 2,
           owner: 2,
           title: 'Pig, Beer, and Bocce Ball',
           'short_desc': 'BBQ',
@@ -43,6 +46,7 @@ class App extends React.Component {
           attendees: 3
         },
         {
+          event_id: 3,
           owner: 5,
           title: 'Moonlight at 8',
           'short_desc': 'Movie',
@@ -55,6 +59,13 @@ class App extends React.Component {
       ]
     }
   }
+  setToken(token) {
+    // console.log(token, 'this token went through to the top');
+    this.setState({
+      facebookToken: token
+    });
+    // console.log(this.state.facebookToken, 'so does this work?');
+  }
   
   login() {
     this.setState({
@@ -66,10 +77,14 @@ class App extends React.Component {
     return (
       <Router>
       <div>
-        <Route exact path='/' component={Facebook} />
+        <Route exact path='/' component={(props) => {
+          return (<Facebook history={props.history} setToken={this.setToken.bind(this)} />
+          )
+        }} />
         <Route path='/homepage' component={(props) => {
           return ( <Homepage ownerEvents={this.state.ownerEvents}
-            friendEvents={this.state.friendEvents} friends={this.state.friends}/>)
+            friendEvents={this.state.friendEvents} friends={this.state.friends} 
+            accessToken={this.state.facebookToken}/>)
         }} />
       </div>
       </Router>
