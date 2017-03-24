@@ -15,7 +15,8 @@ const database = 'youin';
 //let db = Promise.promisifyAll(connection, {multiArgs: true});
 
 let db = pgp({
-  database: database
+  host: process.env.DATABASE_URL
+  //database: database
 });
 
 // db.connectAsync().then(() => {
