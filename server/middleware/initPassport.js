@@ -1,4 +1,4 @@
-let config = require('./authConfig');
+//let config = require('./authConfig');
 let passport = require('passport');
 let FacebookTokenStrategy = require('passport-facebook-token');
 let db = require('../config.js');
