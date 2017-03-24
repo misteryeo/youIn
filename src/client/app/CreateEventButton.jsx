@@ -20,14 +20,10 @@ class CreateEventButton extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getUsers = this.getUsers.bind(this);
+
   }
 
-  componentDidMount() {
-    let context = this;
 
-    context.getUsers();
-  }
   
   showModal () {
     this.refs.modal.show();
@@ -75,18 +71,7 @@ class CreateEventButton extends React.Component {
     
   }
 
-  getUsers() {
-    $.ajax({
-      url: '/users',
-      method: 'GET',
-      success: function(data) {
-        console.log('result of get on /users', data);
-      },
-      error: function(err) {
-        console.log('error in ajax get request in CreateEventButton', err);
-      }
-    })
-  }
+
 
   render () {
     return (
