@@ -4,12 +4,12 @@ let express = require('express');
 let bodyParser = require('body-parser').json();
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
+let port = process.env.PORT || 8080;
 let passport = require('./middleware/initPassport');
 let path = require('path');
 let handler = require('./routes/request_handler');
 
 let app = express();
-let port = process.env.PORT || 8080;
 
 app.use(bodyParser);
 app.use(cookieParser());
