@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, history, Link} from 'react-router-dom';
 import { ajaxSetup } from 'jquery';
-
+console.log(window.location);
 class Facebook extends React.Component {
   constructor(props) {
     super(props)
@@ -9,7 +9,7 @@ class Facebook extends React.Component {
   componentDidMount() {
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1286128124802062',
+      appId      : window.location.host === 'localhost:8080' ? '1286128124802062' : '414888392204388',
       cookie     : true,  // enable cookies to allow the server to access
                         // the session
       xfbml      : true,  // parse social plugins on this page
