@@ -8,8 +8,8 @@ let passport = require('./middleware/initPassport');
 let path = require('path');
 let handler = require('./routes/request_handler');
 
-let app = express();
 let port = process.env.PORT || 8080;
+let app = express();
 
 app.use(bodyParser);
 app.use(cookieParser());
