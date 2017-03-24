@@ -103,11 +103,6 @@ handleClick() {
            data-show-faces="false" data-auto-logout-link="false" onClick={this.handleClick.bind(this)}>
            Login with Facebook</button>
            </div>
-           <div className='row center'>
-             <Link to='/signup'>New User? Sign Up Here</Link>
-           </div>
-           <div id='status'>
-           </div>
          </div>
       
        </div>
