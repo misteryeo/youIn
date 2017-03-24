@@ -2,41 +2,52 @@
 
 let users = [
   {
-    username: 'abianco3',
+    user_id: 1,
+    token: 1234,
     firstname: 'Anthony',
     lastname: 'Bianco',
+    photoUrl: 'anthonyurl',
     email: 'anthony.bianco3@gmail.com'
   },
 
-   {
-    username: 'nkbelow',
+  {
+    user_id: 2,
+    token: 12345,
     firstname: 'Nick',
     lastname: 'Below',
+    photoUrl: 'nickurl',
     email: 'nkbelow@gmail.com'
   },
 
-   {
-    username: 'david.brodie',
+  {
+    user_id: 3,
+    token: 12346,
     firstname: 'David',
     lastname: 'Brodie',
+    photoUrl: 'davidurl',
     email: 'david.brodie122@gmail.com'
   },
-   {
-    username: 'augustus',
+  {
+    user_id: 4,
+    token: 12344,
     firstname: 'Gus',
     lastname: 'Brennan',
+    photoUrl: 'gusurl',
     email: 'augustusmb@gmail.com'
   },
 
-   {
-    username: 'FredZFred',
+  {
+    user_id: 5,
+    token: 123467,
     firstname: 'Fred',
     lastname: 'Zirdung',
+    photoUrl: 'fredurl',
     email: 'fred@hackreactor.com'
   } 
 ];
 let events = [
   {
+    event_id: 123,
     owner: 1,
     title: 'I Wanna Go To The Beach',
     'short_desc': 'Beach Party',
@@ -48,6 +59,7 @@ let events = [
     min: 5
   },
   {
+    event_id: 124,
     owner: 2,
     title: 'Pig, Beer, and Bocce Ball',
     'short_desc': 'BBQ',
@@ -59,6 +71,7 @@ let events = [
     min: 15
   },
   {
+    event_id: 125,
     owner: 5,
     title: 'Moonlight at 8',
     'short_desc': 'Movie',
@@ -75,62 +88,62 @@ let usersEvents = [
   {
     event_id: 1,
     user_id: 2,
-    'status': 'pending'
+    'current_status': 'pending'
   },
   {
     event_id: 1,
     user_id: 3,
-    'status': 'pending'
+    'current_status': 'pending'
   },
   {
     event_id: 1,
     user_id: 4,
-    'status': 'rejected'
+    'current_status': 'rejected'
   },
   {
     event_id: 1,
     user_id: 5,
-    'status': 'pending'
+    'current_status': 'pending'
   },
   {
     event_id: 2,
     user_id: 1,
-    'status': 'accepted'
+    'current_status': 'accepted'
   },
   {
     event_id: 2,
     user_id: 3,
-    'status': 'rejected'
+    'current_status': 'rejected'
   },
   {
     event_id: 2,
     user_id: 4,
-    'status': 'accepted'
+    'current_status': 'accepted'
   },
   {
     event_id: 2,
     user_id: 5,
-    'status': 'pending'
+    'current_status': 'pending'
   },
   {
     event_id: 3,
     user_id: 1,
-    'status': 'rejected'
+    'current_status': 'rejected'
   },
   {
     event_id: 3,
     user_id: 2,
-    'status': 'accepted'
+    'current_status': 'accepted'
   },
   {
     event_id: 3,
     user_id: 3,
-    'status': 'pending'
+    'current_status': 'pending'
   },
   {
     event_id: 3,
     user_id: 4,
-    'status': 'accepted'
+    'current_status': 'accepted'
   },
 ];
 

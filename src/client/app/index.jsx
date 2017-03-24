@@ -67,7 +67,6 @@ class App extends React.Component {
       <Router>
       <div>
         <Route exact path='/' component={Facebook} />
-        <Route path='/signup' component={Signup} />
         <Route path='/homepage' component={(props) => {
           return ( <Homepage ownerEvents={this.state.ownerEvents}
             friendEvents={this.state.friendEvents} friends={this.state.friends}/>)
