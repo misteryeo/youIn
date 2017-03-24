@@ -23,6 +23,8 @@ app.use('/', express.static(path.join(__dirname, '../src/client')));
 
 app.get('/events', handler.getEvents);
 
+app.get('/users', handler.getUsers);
+
 app.post('/events123', handler.createEvent);
 
 app.post('/accept', passport.authenticate('facebook-token'), handler.acceptEvent);
