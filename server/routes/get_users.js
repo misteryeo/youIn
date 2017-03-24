@@ -9,8 +9,8 @@ module.exports = function(req, res) {
     console.log('result from query of users', users)
     res.status(200).json(users);
   })
-  // .error( (err) => {
-  //   res.status(404).send(err, 'Error in get_users handler function');
-  // })
+  .catch( (err) => {
+    res.status(404).send(err, 'Error in get_users handler function');
+  })
 
 }
