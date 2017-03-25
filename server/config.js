@@ -16,7 +16,7 @@ const database = 'youin';
 if (process.env.PORT) {
   pgp.pg.defaults.ssl = true;
   
-  let db = pgp(process.env.DATABASE_URL);
+  //let db = pgp(process.env.DATABASE_URL);
 
   makeSchema(db);
   module.exports = db;
