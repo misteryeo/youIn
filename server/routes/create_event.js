@@ -14,12 +14,12 @@ module.exports = function(req, res) {
 
   console.log('inside create_event', event);
   // query the database for events
-  db.query('INSERT into EVENTS SET ?', event)
+  db.query('INSERT into EVENTS (owner, title, short_desc, description, location, date, time, min) VALUES (${owner}, ${title}, ${short_desc}, ${description}, ${location}, ${date}, ${time}, ${min})', event)
   .then( (result) => {
-    console.log('result from queryasync', result)
+    console.log('result from queryasync in create_event.js', result)
     res.status(201).json(result);
   })
-  .error( (err) => {
+  .catch( (err) => {
     res.status(404).send(err, "Invalid user_id, please login");
   });
 };
