@@ -14,7 +14,7 @@ module.exports = (id) => {
   ON users_events.user_id=$1 AND events.event_id = users_events.event_id';
 
   return db.task( (t) => {
-    return t.map(query, [2], (event) => {
+    return t.map(query, [id], (event) => {
       console.log(event);
       let query = 'SELECT users.user_id, users.firstname, users.lastname FROM users \
       INNER JOIN users_events ON users_events.current_status = \'accepted\' \
