@@ -56,15 +56,15 @@ class Facebook extends React.Component {
 // This function is called when someone finishes with the Login
 // Button.  See the onlogin handler attached to it in the sample
 // code below.
-checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    this.statusChangeCallback(response);
-  }.bind(this));
-}
+  checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      this.statusChangeCallback(response);
+    }.bind(this));
+  }
 
-handleClick() {
-  FB.login(this.statusChangeCallback.bind(this), {scope: 'public_profile, email'});
-}
+  handleClick() {
+    FB.login(this.statusChangeCallback.bind(this), {scope: 'public_profile, email'});
+  }
   render() {
     return (
        <div className='container'>
