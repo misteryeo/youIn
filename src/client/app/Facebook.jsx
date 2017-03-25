@@ -40,10 +40,12 @@ class Facebook extends React.Component {
 
       ajaxSetup({
         beforeSend: function(xhr) {
-          xhr.setRequestHeader('Authorization', 'Bearer ' + response.authResponse.accessToken)
+          xhr.setRequestHeader('Authorization', 'Bearer ' + response.authResponse.accessToken);
         }
-      });
+      })
+      // console.log(response.authResponse.accessToken, 'this is the access token');
       this.props.setToken(response.authResponse.accessToken);
+      this.props.getEvents();
       this.props.history.push('/homepage');
 
     } else if (response.status === 'not_authorized') {
