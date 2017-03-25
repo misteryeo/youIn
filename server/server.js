@@ -1,7 +1,7 @@
 'use strict';
 
 let express = require('express');
-let bodyParser = require('body-parser').json();
+let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
 let passport = require('./middleware/initPassport');
@@ -11,7 +11,8 @@ let handler = require('./routes/request_handler');
 let port = process.env.PORT || 8080;
 let app = express();
 
-app.use(bodyParser);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(session( {secret: 'I didn\'t get Inception'}));
 app.use(passport.initialize());
@@ -23,6 +24,12 @@ app.use('/', express.static(path.join(__dirname, '../src/client')));
 app.get('/events', handler.getEvents);
 
 app.post('/events123', handler.createEvent);
+
+app.post('/accept', passport.authenticate('facebook-token'), handler.acceptEvent);
+
+app.post('/reject', passport.authenticate('facebook-token'), handler.rejectEvent);
+
+app.post('/delete', passport.authenticate('facebook-token'), handler.deleteEvent);
 
 app.get('/test', passport.authenticate('facebook-token'), function(req, res) {
   if (req.user) {

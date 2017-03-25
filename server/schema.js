@@ -17,7 +17,7 @@ module.exports = (db) => {
   .then( () => {
     return db.query('CREATE TABLE IF NOT EXISTS events (\
       event_id SERIAL not null PRIMARY KEY,\
-      owner INT NOT NULL,\
+      owner BIGINT NOT NULL,\
       title varChar(50),\
       short_desc varChar(50),\
       description varChar(255),\
@@ -39,12 +39,12 @@ module.exports = (db) => {
 
     return db.query('CREATE TABLE IF NOT EXISTS users_events (\
       event_id int not null,\
-      user_id int not null,\
+      user_id BIGINT not null,\
       current_status status);')
   })
   .then(() => {
     return db.query('CREATE TABLE IF NOT EXISTS friends (\
-      user1 int not null,\
-      user2 int not null);')
+      user1 BIGINT not null,\
+      user2 BIGINT not null);')
   });
 };

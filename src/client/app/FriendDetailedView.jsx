@@ -1,5 +1,5 @@
 import React from 'react';
-// import $ from 'jquery';
+import $ from 'jquery';
 
 class FriendDetailedView extends React.Component {
   constructor(props) {
@@ -17,44 +17,62 @@ class FriendDetailedView extends React.Component {
     console.log('BUTTON CLICKED');
     this.setState({ accepted: true, rejected: false });
     this.props.onIn();
+    console.log('this is my event id', this.props.event.event_id);
+    this.confirmEventAccept();
 
 
   }
 
   rejectClick () {
-    if (this.state.rejected) { this.deleteEvent(); }
-    this.setState({ accepted: false, rejected: true });
-    this.props.onOut();
+    if (this.state.rejected) { 
+      this.deleteEvent(); 
+    } else { 
+      this.setState({ accepted: false, rejected: true });
+      this.props.onOut();
+      this.confirmEventReject();
+    }
+
+  }
+
+  updateEventStatus(url) {
+    // AJAX request to delete event from users list in the database
+    // console.log('yo', this.props.accessToken);
+    $.ajax({
+      url: url,
+      method: 'POST',
+      'Content-type': 'application/json',
+      beforeSend: (xhr) => {
+        xhr.setRequestHeader ('Authorization', 'Bearer ' + this.props.accessToken);
+      },
+      data: {
+        eventId: JSON.stringify(this.props.event.event_id)
+      },
+      success: function() {
+        console.log('Success');
+      },
+      error: function(err) {
+        console.log('Error', err);
+      }
+    });
   }
 
   confirmEventAccept () {
     // AJAX request sent to DB, confirming this users attendance
     console.log('Confirmed Accepted Event for User');
+    this.updateEventStatus('http://localhost:8080/accept');
   }
 
   confirmEventReject () {
     // AJAX request sent to DB, confirming this users non-attendance
     console.log('Confirmed Rejected Event for User');
+    this.updateEventStatus('http://localhost:8080/reject');
 
   }
 
-  deleteEvent (event_id) {
+  deleteEvent () {
     console.log('event DELETED!');
-    // AJAX request to delete event from users list in the database
-    // $.ajax({
-    //   url: '',
-    //   method: '',
-    //   'content-type': 'application/json',
-    //   data: JSON.stringify({
-    //     event_id: event_id
-    //   }),
-    //   success: function() {
-    //     console.log('Event Deleted');
-    //   },
-    //   error: function() {
-    //     console.log('Error deleting event');
-    //   }
-    // })
+    this.updateEventStatus('http://localhost:8080/delete');
+    
   }
 
   render() {
