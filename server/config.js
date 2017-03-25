@@ -14,6 +14,8 @@ const database = 'youin';
 
 //let db = Promise.promisifyAll(connection, {multiArgs: true});
 if (process.env.PORT) {
+  pgp.pg.defaults.ssl = true;
+  
   let db = pgp({
     host: process.env.DATABASE_URL
   });
