@@ -1,16 +1,16 @@
 'use strict'
 
 let db = require('../config.js');
+let model = require('../models/index.js');
 
 //query database to get all events
 
 module.exports = (req, res) => {
-  db.query('SELECT * from events')
-  .then( (events) => {
-    let results = events[0];
-    res.status(200).json(results);
-  })
-  .error( (error) => {
+  model.getEvents(req.user.user_id)
+  .catch( (error) => {
     res.status(404).send(error, 'failed to get events, please try again');
+  })
+  .then( (results) => {
+    res.status(200).json(results);
   });
 };
