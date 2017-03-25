@@ -1,5 +1,6 @@
 import React from 'react';
 import FriendDetailedView from './FriendDetailedView.jsx';
+import moment from 'moment';
 class FriendEventListItem extends React.Component {
   constructor(props) {
     super(props);
@@ -26,7 +27,7 @@ class FriendEventListItem extends React.Component {
   }
 
   render() {
-    let date = new Date(this.props.event.date);
+    let date = moment(this.props.event.date);
     let accepted = this.state.accepted === true ? "accepted" : null;
     let rejected = this.state.rejected === true ? "rejected" : null;
 
@@ -35,7 +36,7 @@ class FriendEventListItem extends React.Component {
       <div className="panel list-item " onClick={this.handleClickListItem}>
         <span className="glyphicon glyphicon-globe col-md-1"></span>
         <span className={`${accepted} ${rejected} col-md-4`}>{this.props.event.title}</span>
-        <span className={`${accepted} ${rejected} col-md-4`}>{this.props.event.date} at {this.props.event.time}</span>
+        <span className={`${accepted} ${rejected} col-md-4`}>{date.format('dddd D') + 'th'} at {this.props.event.time}</span>
         <span className={`${accepted} ${rejected} col-md-3`}>{this.props.event.attendees.length}<span> people IN</span></span>
         <br/>
       </div>
