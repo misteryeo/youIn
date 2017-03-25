@@ -1,10 +1,11 @@
 
 .page-header {
-  background: rgba(161, 23, 45, 0.7) url(./media_lib/youInLogo.png) 50% 50% no-repeat;
+  background: url(./media_lib/youInLogo.png) 50% 50% no-repeat;
   border-radius: 8px;
   height: 150px;
   color: white;
   vertical-align: middle;
+  border-bottom: none;
 
 }
 
@@ -26,22 +27,38 @@
 }
 
 .login {
-  background-color: rgba(161, 23, 45, 0.7)
+  /*background-color: rgba(161, 23, 45, 0.7)*/
 }
 
 body {
-  background: url(./media_lib/outdoors1.jpg) no-repeat center center fixed;
+  background: url(./media_lib/campfire-984020_1920.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-h2 {
+h1 {
+  vertical-align: text-bottom;
+  font-size: 56px;
+  text-align: center;
+  color: white;
+  font-family: Roboto, sans-serif;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+h2, h4 {
   vertical-align: text-bottom;
   text-align: center;
   color: white;
   font-family: Roboto, sans-serif;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
+}
+
+p, li {
+  color: white;
+  font-family: Roboto, sans-serif;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
 }
 
 .list-item {
@@ -49,9 +66,6 @@ h2 {
 }
 
 .events {
-  border: 5px solid #db0939;
-  border-radius: 5px;
-  background-color: rgba(219, 57, 57, 0.7);
 }
 
 .selected {
