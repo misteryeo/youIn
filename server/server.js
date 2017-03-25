@@ -21,7 +21,7 @@ app.use(passport.session());
 
 app.use('/', express.static(path.join(__dirname, '../src/client')));
 
-app.get('/events', handler.getEvents);
+app.get('/events', passport.authenticate('facebook-token'), handler.getEvents);
 
 app.post('/events123', handler.createEvent);
 

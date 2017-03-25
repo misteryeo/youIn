@@ -47,7 +47,7 @@ let users = [
 ];
 let events = [
   {
-    event_id: 123,
+    event_id: 1,
     owner: 1,
     title: 'I Wanna Go To The Beach',
     'short_desc': 'Beach Party',
@@ -59,7 +59,7 @@ let events = [
     min: 5
   },
   {
-    event_id: 124,
+    event_id: 2,
     owner: 2,
     title: 'Pig, Beer, and Bocce Ball',
     'short_desc': 'BBQ',
@@ -71,7 +71,7 @@ let events = [
     min: 15
   },
   {
-    event_id: 125,
+    event_id: 3,
     owner: 5,
     title: 'Moonlight at 8',
     'short_desc': 'Movie',
