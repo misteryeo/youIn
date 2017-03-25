@@ -26,7 +26,7 @@ class FriendEventListItem extends React.Component {
   }
 
   render() {
-
+    let date = new Date(this.props.event.date);
     let accepted = this.state.accepted === true ? "accepted" : null;
     let rejected = this.state.rejected === true ? "rejected" : null;
 
