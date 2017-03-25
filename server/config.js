@@ -13,11 +13,21 @@ const database = 'youin';
 // });
 
 //let db = Promise.promisifyAll(connection, {multiArgs: true});
-console.log(process.env.DATABASE_URL);
-let db = pgp({
-  database: database
-  //host: process.env.DATABASE_URL
-});
+if (process.env.PORT) {
+  let db = pgp({
+    host: process.env.DATABASE_URL
+  });
+
+  makeSchema(db);
+  module.exports = db;
+} else {
+  let db = pgp({
+    database: database
+  });
+
+  makeSchema(db);
+  module.exports = db;
+}
 
 // }
 
@@ -29,5 +39,3 @@ let db = pgp({
 // }).then(() => {
 //   return makeSchema(db);
 // });
-makeSchema(db);
-module.exports = db;
