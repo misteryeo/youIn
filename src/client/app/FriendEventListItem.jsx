@@ -36,7 +36,7 @@ class FriendEventListItem extends React.Component {
         <span className="glyphicon glyphicon-globe col-md-1"></span>
         <span className={`${accepted} ${rejected} col-md-4`}>{this.props.event.title}</span>
         <span className={`${accepted} ${rejected} col-md-4`}>{this.props.event.date} at {this.props.event.time}</span>
-        <span className={`${accepted} ${rejected} col-md-3`}>{this.props.event.attendees}<span> people IN</span></span>
+        <span className={`${accepted} ${rejected} col-md-3`}>{this.props.event.attendees.length}<span> people IN</span></span>
         <br/>
       </div>
         {this.state.clicked ? <FriendDetailedView
