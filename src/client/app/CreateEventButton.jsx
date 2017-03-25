@@ -23,6 +23,7 @@ class CreateEventButton extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.inviteFriend = this.inviteFriend.bind(this);
+    this.addToUsers_Events = this.addToUsers_Events.bind(this);
 
   }
 
@@ -78,8 +79,38 @@ class CreateEventButton extends React.Component {
     }
   }
 
+  addToUsers_Events(eventId) {
+    //post request on new route, events/users
+    //include user ids from attendees
+    //include data from the event that was created
+
+    let users = this.state.invitees;
+    let userIds = [];
+    for(let i in users) {
+      userIds.push(users[i].user_id)
+    }
+    let users_eventsData = {
+      userIds: userIds,
+      eventId: eventId,
+    }
+    
+    $.ajax({
+      url: '/events/users',
+      method: 'POST',
+      // data: JSON.stringify(users_eventsData),
+      contentType: 'application/json',
+      success: function(data) {
+        console.log('success from addToUsers_Events in CreateEventButton :', data);
+      },
+      error: function(err) {
+        console.log('error from addToUsers_Events  in CreateEventButton', err);
+      }
+    })
+  }
+
 
   handleSubmit (event) {
+    let context = this;
     event.preventDefault();
     let eventData = {
       owner: '1',//this is hardcoded - we need to have the owner come from who is logged in.
@@ -92,12 +123,13 @@ class CreateEventButton extends React.Component {
       min: this.state.min
     }
   $.ajax({
-    url: '/events123',
+    url: '/events/create',
     method: 'POST',
     data: JSON.stringify(eventData),
     contentType: 'application/json',
     success: function(data) {
-      console.log('data from ajax in CreateEventButton', data);
+      console.log('data from ajax in CreateEventButton', data.event_id);
+      context.addToUsers_Events(data.event_id);
     },
     error: function(err) {
       console.log('error in ajax request in CreateEventButton', err);
