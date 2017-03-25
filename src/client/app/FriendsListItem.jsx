@@ -13,6 +13,7 @@ class FriendsListItem extends React.Component {
     this.setState({
       isSelected: !this.state.isSelected
     })
+    this.props.inviteFriend();
   }
 
   render() {
@@ -20,6 +21,7 @@ class FriendsListItem extends React.Component {
       <h5 
         className={this.state.isSelected ? "selected" : null}
         onClick={this.handleClick.bind(this)}>
+
         {this.props.friend.firstname}</h5>
     )
   }
