@@ -6,10 +6,10 @@ class LogoutButton extends React.Component {
     super(props)
   }
 
- logout() {
+  logout() {
     FB.logout((response) => {
       console.log(response);
-    })
+    });
    
   }
   render() {
