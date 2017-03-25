@@ -17,8 +17,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       friends: [],
-      loggedIn: true,
-      newUser: false,
       facebookToken: '',
       ownerEvents: [
         {
@@ -75,11 +73,6 @@ class App extends React.Component {
     // console.log(this.state.facebookToken, 'so does this work?');
   }
   
-  login() {
-    this.setState({
-      loggedIn: true
-    })
-  }
 
   getUsers() {
     let context = this;
@@ -97,12 +90,35 @@ class App extends React.Component {
     })
   }
 
+  getEvents() {
+    $.ajax({
+      url: '/events',
+      method: 'GET',
+      contentType: 'application/json',
+      success: function (result) {
+        console.log('result of get on /events', result);
+        this.setState({
+          ownerEvents: result.ownerEvents,
+          friendEvents: result.friendEvents
+        });
+      }.bind(this),
+      error: function(err) {
+        console.log(err);
+        if (err.status === 401) {
+          this.props.history.push('/');
+        }
+      }.bind(this),
+    });
+  }
+
   render () {
     return (
       <Router>
       <div>
         <Route exact path='/' component={(props) => {
-          return (<Facebook history={props.history} setToken={this.setToken.bind(this)} />
+          return (<Facebook history={props.history} 
+            setToken={this.setToken.bind(this)} 
+            getEvents={this.getEvents.bind(this)}/>
           )
         }} />
         <Route path='/homepage' component={(props) => {
