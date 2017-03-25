@@ -9,18 +9,27 @@ class CreateEventButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      clicked: {},
+      friends:[],
       title: '',
       what: 'food-drinks',
       where: '',
       date: '',
       time: '',
       min: '',
-      invitees: [],
+      invitees: {},
       description: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.inviteFriend = this.inviteFriend.bind(this);
+
   }
+
+  componentDidMount() {
+    this.setState({friends: this.props.friends})
+  }
+
   
   showModal () {
     this.refs.modal.show();
@@ -40,6 +49,36 @@ class CreateEventButton extends React.Component {
     this.setState(newState);
   }
 
+  inviteFriend(friend) {
+    let it = friend.user_id;
+    if (this.state.clicked[it]) {
+      return () => {
+
+       this.setState((prevState, props) => {
+         let clicked = prevState.clicked;
+         let invitees = prevState.invitees;
+         let id = friend.user_id
+         clicked[id] = false;
+         delete invitees[id];
+         return {invitees: invitees, clicked: clicked};
+       }); 
+      }
+    } else {
+      return () => {
+
+        this.setState((prevState, props) => {
+          let clicked = prevState.clicked;
+          let invitees = prevState.invitees;
+          let id = friend.user_id
+          invitees[id] = friend;
+          clicked[id] = true;
+          return {invitees: invitees, clicked: clicked};
+        });
+      }
+    }
+  }
+
+
   handleSubmit (event) {
     event.preventDefault();
     let eventData = {
@@ -50,7 +89,6 @@ class CreateEventButton extends React.Component {
       location: this.state.where,
       date: this.state.date,
       time: this.state.time,
-      attendees: this.state.invitees.length,
       min: this.state.min
     }
   $.ajax({
@@ -67,6 +105,8 @@ class CreateEventButton extends React.Component {
   })
     
   }
+
+
 
   render () {
     return (
@@ -127,7 +167,9 @@ class CreateEventButton extends React.Component {
                     this.props.friends.map( (friend, i) => (
                       <FriendsListItem
                         key={i} 
-                        friend={friend}/>
+                        friend={friend}
+                        inviteFriend={this.inviteFriend(friend)}
+                        />
                       )
                     )
                   }
@@ -162,3 +204,9 @@ class CreateEventButton extends React.Component {
 }
 
 export default CreateEventButton;
+
+//click the name and the style changes
+//an array (in state?) that holds all of the people taken from the DB
+//Display those people's names via the friendsListItem component.
+//click the name and add the person to an array of people (with access to all of their information)
+//deselect them and take them out of the array that holds their information.

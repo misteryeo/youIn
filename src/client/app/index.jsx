@@ -8,6 +8,7 @@ import Homepage from './Homepage.jsx';
 import {users as friends} from '../../../server/data.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Facebook from './Facebook.jsx';
+import $ from 'jquery';
 
 
 
@@ -16,7 +17,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      friends: friends.slice(0, 5),
+      friends: [],
       loggedIn: true,
       newUser: false,
       facebookToken: '',
@@ -58,6 +59,14 @@ class App extends React.Component {
         }
       ]
     }
+
+    this.getUsers = this.getUsers.bind(this);
+  }
+
+  componentDidMount() {
+    let context = this;
+
+    context.getUsers();
   }
   setToken(token) {
     // console.log(token, 'this token went through to the top');
@@ -70,6 +79,22 @@ class App extends React.Component {
   login() {
     this.setState({
       loggedIn: true
+    })
+  }
+
+  getUsers() {
+    let context = this;
+    $.ajax({
+      url: '/users',
+      method: 'GET',
+      contentType: 'application/json',
+      success: function(data) {
+        console.log('result of get on /users', data);
+        context.setState({friends: data});
+      },
+      error: function(err) {
+        console.log('error in ajax get request in CreateEventButton', err);
+      }
     })
   }
 
