@@ -22,8 +22,10 @@ class Facebook extends React.Component {
 
   }
   testAPI() {
+    var check = this;
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
+      check.props.setName(response.name);
       console.log('Successful login for: ' + response.name);
     });
   }

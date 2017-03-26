@@ -18,6 +18,7 @@ class App extends React.Component {
     this.state = {
       friends: [],
       facebookToken: '',
+      userName: '',
       ownerEvents: [
         {
           event_id: 1,
@@ -72,7 +73,18 @@ class App extends React.Component {
     });
     // console.log(this.state.facebookToken, 'so does this work?');
   }
+<<<<<<< HEAD
 
+||||||| merged common ancestors
+  
+=======
+  setName(name) {
+    this.setState({
+      userName: name 
+    });
+  }
+  
+>>>>>>> Populate name of user on homepage when you login
 
   getUsers() {
     let context = this;
@@ -116,15 +128,16 @@ class App extends React.Component {
       <Router>
       <div>
         <Route exact path='/' component={(props) => {
-          return (<Facebook history={props.history}
+          return (<Facebook history={props.history} 
             setToken={this.setToken.bind(this)}
+            setName={this.setName.bind(this)} 
             getEvents={this.getEvents.bind(this)}/>
           )
         }} />
         <Route path='/homepage' component={(props) => {
-          return (<Homepage ownerEvents={this.state.ownerEvents}
-            friendEvents={this.state.friendEvents} friends={this.state.friends}
-            accessToken={this.state.facebookToken}/>)
+          return ( <Homepage ownerEvents={this.state.ownerEvents}
+            friendEvents={this.state.friendEvents} friends={this.state.friends} 
+            accessToken={this.state.facebookToken} userName={this.state.userName}/>)
         }} />
       </div>
       </Router>
