@@ -26,6 +26,11 @@
   float: right;
 }
 
+#userName {
+  float: left;
+  margin: 0px;
+}
+
 .login {
   /*background-color: rgba(161, 23, 45, 0.7)*/
 }
