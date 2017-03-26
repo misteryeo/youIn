@@ -24,14 +24,21 @@ module.exports = (id) => {
         .then( (attendees) => {
           event.attendees = attendees;
           return event;
-        })
-        .catch( (err) => {
-          console.log('error in users_events table query', err);
         });
+        // .catch( (err) => {
+        //   console.log('error in users_events table query', err);
+        // });
     })
-    .catch( (err) => {
-      console.log('error in events table query', err);
-    })
-    .then(t.batch);
+    .then(t.batch)
+    .then( (results) => {
+      let events = { ownerEvents: [], friendEvents: []};
+      results.forEach( (event) => {
+        events[event.owner === id ? 'ownerEvents' : 'friendEvents'].push(event);
+      });
+      return events;
+    });
+    // .catch( (err) => {
+    //   console.log('error in events table query', err);
+    // });
   })
 }

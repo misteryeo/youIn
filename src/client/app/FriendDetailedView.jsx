@@ -76,7 +76,7 @@ class FriendDetailedView extends React.Component {
   }
 
   render() {
-    const friends = ['Anthony', 'David', 'Nick', 'Gus'];
+    //const friends = ['Anthony', 'David', 'Nick', 'Gus'];
 
     let inButtonText = this.state.accepted === false ? 'I\'m In' : 'I\'m In!';
     let outButtonText = this.state.rejected === false ? 'I\'m Out' : 'Delete';
@@ -95,7 +95,7 @@ class FriendDetailedView extends React.Component {
         </div>
         <div className="col-md-3">
           <ul>
-            {friends.map((friend, i) => <li key={i}>{friend}</li>)}
+            {this.props.event.attendees.map((friend, i) => <li key={i}>{friend.firstname}</li>)}
           </ul>
         </div>
       </div>

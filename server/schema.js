@@ -40,7 +40,7 @@ module.exports = (db) => {
     return db.query('CREATE TABLE IF NOT EXISTS users_events (\
       event_id int not null,\
       user_id BIGINT not null,\
-      current_status status);')
+      current_status status default \'pending\');')
   })
   .then(() => {
     return db.query('CREATE TABLE IF NOT EXISTS friends (\
