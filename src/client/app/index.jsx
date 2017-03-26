@@ -105,7 +105,7 @@ class App extends React.Component {
       error: function(err) {
         console.log(err);
         if (err.status === 401) {
-          this.props.history.push('/');
+          // this.props.history.push('/');
         }
       }.bind(this),
     });
