@@ -65,7 +65,20 @@ p, li {
   font-size: 150%;
 }
 
-.events {
+#username {
+  float: left;
+}
+
+.eventlist {
+  background-color: rgba(2,2,2,.5);
+  border: 1px solid darkblue;
+  border-radius: 5px;
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
+}
+
+.panel {
+  background: none;
 }
 
 .selected {

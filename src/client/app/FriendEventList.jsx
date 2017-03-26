@@ -2,7 +2,7 @@ import React from 'react';
 import FriendEventListItem from './FriendEventListItem.jsx'
 
 const FriendEventList = (props) => (
-  <div>
+  <div className='eventlist'>
     {props.friendEventsArr.map((event, i) => <FriendEventListItem accessToken={props.accessToken} key={i} event={event}/>)}  
   </div>
 )

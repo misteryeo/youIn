@@ -33,7 +33,7 @@ class FriendEventListItem extends React.Component {
 
     return (
       <div>
-      <div className="panel list-item " onClick={this.handleClickListItem}>
+      <div className="panel list-item" onClick={this.handleClickListItem}>
         <span className="glyphicon glyphicon-globe col-md-1"></span>
         <span className={`${accepted} ${rejected} col-md-4`}>{this.props.event.title}</span>
         <span className={`${accepted} ${rejected} col-md-4`}>{date.format('dddd D') + 'th'} at {this.props.event.time}</span>
