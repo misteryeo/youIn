@@ -14,12 +14,13 @@ const Homepage = (props) => (
       <CreateEventButton friends={props.friends}/>
       <br /><br />
       <div className='container events'>
-        <h2 className='header-inner'> MyEventsList</h2>
+        <br></br><br></br>
+        <h2 id="my-events-title" className='header-inner'> My Events</h2>
         <OwnerEventList  ownerEventsArr={props.ownerEvents}/>
       </div>
         <br /><br />
       <div className='container events'>
-        <h2 className='header-inner'> FriendEventList</h2>
+        <h2 id="friend-events-title"className='header-inner'> Friend Events</h2>
         <FriendEventList accessToken={props.accessToken} friendEventsArr={props.friendEvents}/>
       </div>
     </div>
