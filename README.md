@@ -1,6 +1,6 @@
 # YouIn
 
-> YouIn allows users to coordinate spontaneous events in moments.  Bring an end to the hassle of coordinating multiple text conversations among friends by sending them all a single question - Are you in or are you out?  Just fill in the details, select your friends and wait for them to make the choice.  
+> Bring an end to the hassle of coordinating multiple text conversations among friends. You In asks one question - Are you in or are you out?  Just fill in the details, select your friends and wait for them to make the choice.  
 So? Are **You In**?
 
 
