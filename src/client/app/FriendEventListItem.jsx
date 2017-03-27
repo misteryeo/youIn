@@ -1,6 +1,8 @@
 import React from 'react';
 import FriendDetailedView from './FriendDetailedView.jsx';
 import moment from 'moment';
+import $ from 'jquery';
+
 class FriendEventListItem extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +14,7 @@ class FriendEventListItem extends React.Component {
     }
     //bind methods here
     this.handleClickListItem = this.handleClickListItem.bind(this);
+    this.checkEventStatus = this.checkEventStatus.bind(this);
   }
   //Insert Methods Here
   handleClickListItem() {
@@ -30,8 +33,30 @@ class FriendEventListItem extends React.Component {
   onAcceptClick () {
     console.log('this is the number or attendees');
     this.setState({ accepted: true, rejected: false, attendees: this.props.event.attendees.length + 1 });
-    
   }
+
+  checkEventStatus () {
+    $.ajax({
+      url: '/checkStatus',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        eventId: this.props.event.event_id
+      }),
+      success: (status) => {
+        console.log(status);
+        if (status.current_status === 'accepted') {
+          this.setState({accepted: true, rejected: false});
+        } else if (status.current_status === 'rejected') {
+          this.setState({rejected: true, accepted: false});
+        }
+      },
+      error: (err) => {
+        console.log('STATUS CHECK FAILED: ', err);
+      }
+    })
+  }
+
 
   onRejectClick() {
     console.log(this.state.attendees);
@@ -42,6 +67,8 @@ class FriendEventListItem extends React.Component {
     let date = moment(this.props.event.date);
     let accepted = this.state.accepted === true ? "accepted" : null;
     let rejected = this.state.rejected === true ? "rejected" : null;
+
+    this.checkEventStatus();
 
     return (
       <div>
