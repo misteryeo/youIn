@@ -68,8 +68,8 @@ class App extends React.Component {
       success: callback.bind(this),
       error: function(err) {
         console.log(err);
-        if (err.status === 401) {
-          //history.push('/');
+        if (err.status >= 400) {
+          history.push('/');
         }
       }.bind(this),
     });
