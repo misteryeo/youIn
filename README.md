@@ -24,13 +24,13 @@ waste time contacting each person individually.
 
 ## Usage
 
-> Some usage instructions
+
 
 ## Requirements
 
- -Node
- -Postgres
- -Bower
+ -Node 6.8.1
+ -PostgreSQL 9.9.4
+ -Webpack 2.2.x
 
 
 ## Development
