@@ -67,7 +67,9 @@ class Homepage extends React.Component {
             <br /><br />
           <div className='container events'>
             <h2 id="friend-events-title"className='header-inner'> Friend Events</h2>
-            <FriendEventList accessToken={this.props.accessToken} friendEventsArr={this.props.friendEvents}/>
+            <FriendEventList accessToken={this.props.accessToken} 
+            friendEventsArr={this.props.friendEvents}
+            getEvents={this.props.getEvents}/>
           </div>
         </div>
       </div>

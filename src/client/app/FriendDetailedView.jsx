@@ -17,7 +17,7 @@ class FriendDetailedView extends React.Component {
     console.log('BUTTON CLICKED');
     this.setState({ accepted: true, rejected: false });
     this.props.onIn();
-    console.log('this is my event id', this.props.event.event_id);
+    console.log('this  is my event id', this.props.event.event_id);
     this.confirmEventAccept();
 
 
