@@ -31,7 +31,7 @@ class CreateEventButton extends React.Component {
     this.setState({friends: this.props.friends})
   }
 
-  
+
   showModal () {
     this.refs.modal.show();
   }
@@ -62,7 +62,7 @@ class CreateEventButton extends React.Component {
          clicked[id] = false;
          delete invitees[id];
          return {invitees: invitees, clicked: clicked};
-       }); 
+       });
       }
     } else {
       return () => {
@@ -135,7 +135,7 @@ class CreateEventButton extends React.Component {
       console.log('error in ajax request in CreateEventButton', err);
     }
   })
-    
+
   }
 
 
@@ -143,7 +143,7 @@ class CreateEventButton extends React.Component {
   render () {
     return (
       <div>
-        <button onClick={this.showModal.bind(this)} className="btn-danger col-md-4 col-md-offset-4">Create Event</button>
+        <div><button onClick={this.showModal.bind(this)} id="create_event" className="col-md-4 col-md-offset-4">Create Event</button></div>
         <Modal ref="modal">
           <div className="container-fluid">
             <form onSubmit={this.handleSubmit.bind(this)}>
@@ -151,8 +151,8 @@ class CreateEventButton extends React.Component {
                 <div className="col-md-8">
 
                   <h4>Give your event a title</h4>
-                  <input 
-                    value={this.state.title} 
+                  <input
+                    value={this.state.title}
                     type="text"
                     onChange={this.handleChange.bind(this, 'title')} required
                     />
@@ -167,38 +167,38 @@ class CreateEventButton extends React.Component {
                   </select>
 
                   <h4>Where?</h4>
-                  <input 
+                  <input
                     value={this.state.where}
                     onChange={this.handleChange.bind(this, 'where')}
                     type="text" required
                     />
 
                   <h4>When?</h4>
-                  <input 
+                  <input
                     value={this.state.date}
                     onChange={this.handleChange.bind(this, 'date')}
                     type="date" required
                     />
-                  <input 
+                  <input
                     value={this.state.time}
                     onChange={this.handleChange.bind(this, 'time')}
                     type="time" required
                     />
-                       
+
                   <h4>Minimum friends for this event?</h4>
-                  <input 
+                  <input
                     value={this.state.min}
                     onChange={this.handleChange.bind(this, 'min')}
                     type="text" required
                     />
                 </div>
-                        
+
                 <div className="col-md-4">
                   <h4>Invite Friends</h4>
                   {
                     this.props.friends.map( (friend, i) => (
                       <FriendsListItem
-                        key={i} 
+                        key={i}
                         friend={friend}
                         inviteFriend={this.inviteFriend(friend)}
                         />
@@ -208,7 +208,7 @@ class CreateEventButton extends React.Component {
                 </div>
 
               </div>
-     
+
 
               <div className="col-md-12">
                 <h4>Description: </h4>
@@ -218,11 +218,11 @@ class CreateEventButton extends React.Component {
               <div className="col-md-12">
                 <input
                 value={this.state.description}
-                onChange={this.handleChange.bind(this, 'description')} 
+                onChange={this.handleChange.bind(this, 'description')}
                 type="text" required/>
               </div>
-          
-  
+
+
               <div className="col-md-12">
                 <button type="submit">See Who's In!</button>
               </div>

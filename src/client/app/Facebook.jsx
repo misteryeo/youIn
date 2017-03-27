@@ -13,13 +13,13 @@ class Facebook extends React.Component {
         cookie     : true,  // enable cookies to allow the server to access
                           // the session
         xfbml      : true,
-        version    : 'v2.1' 
+        version    : 'v2.1'
       });
       FB.getLoginStatus(function(response) {
         this.statusChangeCallback(response);
       }.bind(this));
     }.bind(this);
-  
+
   }
   testAPI() {
     console.log('Welcome!  Fetching your information.... ');
@@ -76,12 +76,12 @@ class Facebook extends React.Component {
            <h1> Start the Party </h1>
            <h4> With The Click Of A Button </h4>
            <div className='row center'>
-           <button className="loginBtn loginBtn--facebook" data-max-rows="1" data-size="xlarge" 
+           <button className="loginBtn loginBtn--facebook" data-max-rows="1" data-size="xlarge"
            data-show-faces="false" data-auto-logout-link="false" onClick={this.handleClick.bind(this)}>
            Login with Facebook</button>
            </div>
          </div>
-      
+
        </div>
       )
   }

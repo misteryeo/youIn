@@ -72,7 +72,7 @@ class App extends React.Component {
     });
     // console.log(this.state.facebookToken, 'so does this work?');
   }
-  
+
 
   getUsers() {
     let context = this;
@@ -116,14 +116,14 @@ class App extends React.Component {
       <Router>
       <div>
         <Route exact path='/' component={(props) => {
-          return (<Facebook history={props.history} 
-            setToken={this.setToken.bind(this)} 
+          return (<Facebook history={props.history}
+            setToken={this.setToken.bind(this)}
             getEvents={this.getEvents.bind(this)}/>
           )
         }} />
         <Route path='/homepage' component={(props) => {
-          return ( <Homepage ownerEvents={this.state.ownerEvents}
-            friendEvents={this.state.friendEvents} friends={this.state.friends} 
+          return (<Homepage ownerEvents={this.state.ownerEvents}
+            friendEvents={this.state.friendEvents} friends={this.state.friends}
             accessToken={this.state.facebookToken}/>)
         }} />
       </div>
