@@ -102,7 +102,12 @@ class CreateEventButton extends React.Component {
       success: function(data) {
         console.log('success from addToUsers_Events in CreateEventButton :', data);
         this.hideModal();
-        this.props.getEvents();
+        this.props.getEvents(this.props.history, function(result) {
+          this.setState({
+            ownerEvents: result.ownerEvents,
+            friendEvents: result.friendEvents
+          });
+        });
       }.bind(this),
       error: function(err) {
         console.log('error from addToUsers_Events  in CreateEventButton', err);
