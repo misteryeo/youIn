@@ -95,7 +95,7 @@ class App extends React.Component {
     })
   }
 
-  getEvents() {
+  getEvents(history) {
     $.ajax({
       url: '/events',
       method: 'GET',
@@ -110,7 +110,7 @@ class App extends React.Component {
       error: function(err) {
         console.log(err);
         if (err.status === 401) {
-          // this.props.history.push('/');
+          //history.push('/');
         }
       }.bind(this),
     });
@@ -130,7 +130,9 @@ class App extends React.Component {
         <Route path='/homepage' component={(props) => {
           return ( <Homepage ownerEvents={this.state.ownerEvents}
             friendEvents={this.state.friendEvents} friends={this.state.friends} 
-            accessToken={this.state.facebookToken} userName={this.state.userName}/>)
+            accessToken={this.state.facebookToken} userName={this.state.userName}
+            history={props.history}
+            getEvents={this.getEvents.bind(this)}/>)
         }} />
       </div>
       </Router>
