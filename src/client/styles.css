@@ -1,6 +1,6 @@
 
 .page-header {
-  background: url(./media_lib/youInLogo.png) 50% 50% no-repeat;
+  background: url(./media_lib/YouInLogo2.png) 50% 50% no-repeat;
   border-radius: 8px;
   height: 150px;
   color: white;
@@ -22,7 +22,11 @@
 }
 
 #logout {
+  font-family: sans-serif;
+  font-size: 20px;
+  padding: 8px 8px 8px 8px;
   color: black;
+  background-color: #7c9ac9;
   float: right;
 }
 
@@ -52,13 +56,13 @@ h2, h4 {
   text-align: center;
   color: white;
   font-family: Roboto, sans-serif;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 p, li {
   color: white;
   font-family: Roboto, sans-serif;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 .list-item {
@@ -73,7 +77,7 @@ p, li {
   background-color: rgba(2,2,2,.5);
   border-radius: 5px;
   color: white;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 .panel {
@@ -84,7 +88,7 @@ p, li {
   background-color: #438CFF;
 }
 
-/* this all deals with the facebook login button and the formatting for the div containing the 
+/* this all deals with the facebook login button and the formatting for the div containing the
 button */
 .loginBtn {
   box-sizing: border-box;
@@ -154,6 +158,33 @@ button */
   color: red;
   font-weight: bold;
 
+}
+
+#create_event {
+  font-family: sans-serif;
+  font-size: 32px;
+  color: white;
+  background-color: #800000;
+  padding: 12px 12px 12px 12px;
+  border-radius: 6px;
+}
+
+#my-events-title {
+  font-weight: bold;
+  font-size: 42px;
+  text-align: left;
+  padding-left: 40px;
+  color: #800000;
+  text-shadow: 1px 0 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white;
+}
+
+#friend-events-title {
+  font-weight: bold;
+  font-size: 42px;
+  text-align: left;
+  padding-left: 40px;
+  color: #800000;
+  text-shadow: 1px 0 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white;
 }
 
 
