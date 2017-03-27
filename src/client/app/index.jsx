@@ -73,18 +73,11 @@ class App extends React.Component {
     });
     // console.log(this.state.facebookToken, 'so does this work?');
   }
-<<<<<<< HEAD
-
-||||||| merged common ancestors
-  
-=======
   setName(name) {
     this.setState({
       userName: name 
     });
   }
-  
->>>>>>> Populate name of user on homepage when you login
 
   getUsers() {
     let context = this;
