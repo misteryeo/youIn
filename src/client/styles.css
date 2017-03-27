@@ -30,6 +30,11 @@
   float: right;
 }
 
+#userName {
+  float: left;
+  margin: 0px;
+}
+
 .login {
   /*background-color: rgba(161, 23, 45, 0.7)*/
 }
@@ -63,6 +68,13 @@ p, li {
   color: white;
   font-family: Roboto, sans-serif;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.create {
+  font-family: Roboto, sans-serif;
+  color: black;
+  text-shadow: none;
+  text-align: left;
 }
 
 .list-item {
