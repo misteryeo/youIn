@@ -161,6 +161,10 @@ button */
   color: white;
 }
 
+.update{
+  color: black;
+}
+
 .accepted {
   color: #15F659;
   font-weight: bold;
