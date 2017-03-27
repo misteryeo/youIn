@@ -10,7 +10,7 @@ module.exports = (req, res) => {
   // console.log('this is my id', userId);
   let eventId = req.body['eventId'];
   // console.log(eventId, 'this is eventId');
-  db.query('UPDATE users_events set current_status = \'accepted\' where event_id = ' + eventId + ' and user_id = ' + userId)
+  db.query('UPDATE users_events set current_status = \'accepted\' where event_id =$1 and user_id =$2', [eventId, userId])
   .then((result) => {
     console.log('accepted route success', result);
     res.status(201).send('event accepted');
