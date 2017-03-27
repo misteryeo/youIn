@@ -14,6 +14,14 @@ class OwnerEventListItem extends React.Component {
   //Insert Methods Here
   handleClickListItem() {
     this.setState({clicked: !this.state.clicked});
+    if (this.state.clicked) {
+      this.props.getEvents(this.props.history, function(result) {
+        this.setState({
+          ownerEvents: result.ownerEvents,
+          friendEvents: result.friendEvents
+        });
+      });
+    }
   }
 
   render() {
