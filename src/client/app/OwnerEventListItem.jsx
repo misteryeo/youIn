@@ -28,7 +28,7 @@ class OwnerEventListItem extends React.Component {
         <div className="col-sm-3">{this.props.event.attendees.length}<span> people IN</span></div>
         <br/>
       </div>
-        {this.state.clicked ? <OwnerDetailedView event={this.props.event}/> : '' }
+        {this.state.clicked ? <OwnerDetailedView accessToken={this.props.accessToken} event={this.props.event}/> : '' }
       </div>
     );
   }
