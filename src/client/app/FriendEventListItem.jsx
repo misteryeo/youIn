@@ -44,7 +44,6 @@ class FriendEventListItem extends React.Component {
         eventId: this.props.event.event_id
       }),
       success: (status) => {
-        console.log(status);
         if (status.current_status === 'accepted') {
           this.setState({accepted: true, rejected: false});
         } else if (status.current_status === 'rejected') {
