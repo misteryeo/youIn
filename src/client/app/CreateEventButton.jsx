@@ -149,15 +149,14 @@ class CreateEventButton extends React.Component {
             <form onSubmit={this.handleSubmit.bind(this)}>
               <div className="row">
                 <div className="col-md-8">
-
-                  <h4>Give your event a title</h4>
-                  <input
-                    value={this.state.title}
+                  <h4 className='create'>Give your event a title</h4>
+                  <input 
+                    value={this.state.title} 
                     type="text"
                     onChange={this.handleChange.bind(this, 'title')} required
                     />
 
-                  <h4>Pick an event category</h4>
+                  <h4 className='create'>Pick an event category</h4>
                   <select value={this.state.what} onChange={this.handleChange.bind(this, 'what')} required>
                     <option value="food-drinks" >Food/Drinks</option>
                     <option value="indoor-activity">Indoor Activity</option>
@@ -165,16 +164,14 @@ class CreateEventButton extends React.Component {
                     <option value="hangout">Hangout</option>
                     <option value="other">Other</option>
                   </select>
-
-                  <h4>Where?</h4>
-                  <input
+                  <h4 className='create'>Where?</h4>
+                  <input 
                     value={this.state.where}
                     onChange={this.handleChange.bind(this, 'where')}
                     type="text" required
                     />
-
-                  <h4>When?</h4>
-                  <input
+                  <h4 className='create'>When?</h4>
+                  <input 
                     value={this.state.date}
                     onChange={this.handleChange.bind(this, 'date')}
                     type="date" required
@@ -183,10 +180,9 @@ class CreateEventButton extends React.Component {
                     value={this.state.time}
                     onChange={this.handleChange.bind(this, 'time')}
                     type="time" required
-                    />
-
-                  <h4>Minimum friends for this event?</h4>
-                  <input
+                    /> 
+                  <h4 className='create'>Minimum friends for this event?</h4>
+                  <input 
                     value={this.state.min}
                     onChange={this.handleChange.bind(this, 'min')}
                     type="text" required
@@ -194,7 +190,7 @@ class CreateEventButton extends React.Component {
                 </div>
 
                 <div className="col-md-4">
-                  <h4>Invite Friends</h4>
+                  <h4 className='create'>Invite Friends</h4>
                   {
                     this.props.friends.map( (friend, i) => (
                       <FriendsListItem
@@ -211,7 +207,7 @@ class CreateEventButton extends React.Component {
 
 
               <div className="col-md-12">
-                <h4>Description: </h4>
+                <h4 className='create'>Description: </h4>
               </div>
 
 
