@@ -153,12 +153,12 @@ button */
 }
 
 #accept-click {
-  background-color: green;
+  background-color: #4286f4;
   color: white;
 }
 
 #reject-click {
-  background-color: red;
+  background-color: #f47927;
   color: white;
 }
 
@@ -167,12 +167,12 @@ button */
 }
 
 .accepted {
-  color: #15F659;
+  color: #4286f4;
   font-weight: bold;
 }
 
 .rejected {
-  color: red;
+  color: #f47927;
   font-weight: bold;
 
 }
@@ -208,5 +208,10 @@ button */
   font-weight: bold;
   color: white;
   text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
+}
+
+.goingButton {
+  border-radius: 4px;
+  background-color: #9fa3b7;
 }
 

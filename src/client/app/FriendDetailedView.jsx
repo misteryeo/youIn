@@ -24,9 +24,9 @@ class FriendDetailedView extends React.Component {
   }
 
   rejectClick () {
-    if (this.state.rejected) { 
-      this.deleteEvent(); 
-    } else { 
+    if (this.state.rejected) {
+      this.deleteEvent();
+    } else {
       this.setState({ accepted: false, rejected: true });
       this.props.onOut();
       this.confirmEventReject();
@@ -72,7 +72,7 @@ class FriendDetailedView extends React.Component {
   deleteEvent () {
     console.log('event DELETED!');
     this.updateEventStatus('/delete');
-    
+
   }
 
   render() {
@@ -90,8 +90,8 @@ class FriendDetailedView extends React.Component {
         <div className="col-md-8 col-md-offset-1">
           <p>{this.props.event.description}</p>
           <p>{this.props.event.location}</p>
-          <button className="update" id={acceptedId} onClick={this.acceptClick.bind(this)}>{inButtonText}</button>
-          <button className="update" id={rejectedId} onClick={this.rejectClick.bind(this)}>{outButtonText}</button>
+          <button className="update goingButton" id={acceptedId} onClick={this.acceptClick.bind(this)}>{inButtonText}</button>
+          <button className="update goingButton" id={rejectedId} onClick={this.rejectClick.bind(this)}>{outButtonText}</button>
         </div>
         <div className="col-md-3">
           <ul>
