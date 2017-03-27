@@ -1,8 +1,7 @@
 # YouIn
 
-> YouIn aims to make spontaneous event creation simple and effortless. With the click of a button,
-YouIn allows you to create an event and let all of your friends know about it without having to 
-waste time contacting each person individually. 
+> YouIn allows users to coordinate hanging out more easily than ever before.  Bring an end to the hassle of having multiple text conversations to see if people are in, or out.  With the click, a user can create and invite friends to any spontaneous event they want to do.  Those friends get an invite and with one click say whether they're in, or they're out.  You in?
+
 
 ##Team
 
@@ -11,7 +10,7 @@ waste time contacting each person individually.
  - David Brodie
  - Augustus Brennan
 
- ##Table of Contents 
+ ##Table of Contents
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
@@ -33,6 +32,7 @@ waste time contacting each person individually.
  -Webpack 2.2.x
 
 
+
 ## Development
 
 ### Installing Dependencies
@@ -46,7 +46,9 @@ npm run dev (running Webpack with watch configuration)
 ```
 ### Roadmap
 
+
 View the project roadmap [here](https://docs.google.com/spreadsheets/d/12_Eu1kK5os0wg08HghBuHDD_Lew8vWZ1nWyCUflK75U/edit?ts=58c754e3#gid=0)
+
 
 
 ## Contributing
