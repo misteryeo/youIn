@@ -46,7 +46,7 @@ npm run dev (running Webpack with watch configuration)
 ```
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_DOC)
+View the project roadmap [here](https://docs.google.com/spreadsheets/d/12_Eu1kK5os0wg08HghBuHDD_Lew8vWZ1nWyCUflK75U/edit?ts=58c754e3#gid=0)
 
 
 ## Contributing
