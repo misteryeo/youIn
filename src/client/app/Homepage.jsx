@@ -14,7 +14,7 @@ class Homepage extends React.Component {
 
   pollEvents() {
     this.props.getEvents(this.props.history, function(result) {
-      
+
       if (result.ownerEvents.length !== this.state.ownerEvents.length) {
         this.setState({
           ownerEvents: result.ownerEvents
@@ -47,10 +47,10 @@ class Homepage extends React.Component {
       <div>
         <div className="container">
           <div className="page-header">
-           <h2 id='userName'>Welcome {this.props.userName}</h2>
+           <h2 id='userName'>Welcome <span id="headerName">{this.props.userName}</span></h2>
             <LogoutButton />
           </div>
-          <CreateEventButton 
+          <CreateEventButton
           history={this.props.history}
           friends={this.props.friends}
           getEvents={this.props.getEvents}/>
