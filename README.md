@@ -29,7 +29,7 @@
 Getting your Facebook App ID:
 
 tl;dr
-Visit https://developers.facebook.com/ , login and use the provided promps/docs/interface to get your app ID (required to get the app functioning). 
+Visit https://developers.facebook.com/ , login and use the provided prompts/docs/interface to get your app ID (required to get the app functioning). 
 
 Detailed Instructions:
 1) Visit https://developers.facebook.com/
@@ -46,19 +46,24 @@ ONCE YOU HAVE YOUR APP ID:
   IMPORTANT
     Because Facebook will only allow you to have one URL for your site, you will need multiple App IDs to use the app on a localhost server, staging on Heroku, and production on Heroku.  Creating multiple app IDs by following the above instructions again is an easy solution to this challenge.
 2) In the FB.init function in Facebook.jsx, input your separate app IDs in the appIds section, depending on the URL of the app.  
+```javascript
+
     window.fbAsyncInit = function() {
-      FB.init({
-        appId      : window.location.host === 'localhost:PORT' ? 'APP_ID1' : window.location.host === 'HEROKU_ADDRESS' ? 'APP_ID2' :'APP_ID3',
-        cookie     : true,  // enable cookies to allow the server to access
+    FB.init({
+    appId      : window.location.host === 'localhost:PORT' ? 'APP_ID1' :           window.location.host === 'HEROKU_ADDRESS' ? 'APP_ID2' :'APP_ID3',
+    cookie     : true,  // enable cookies to allow the server to access
                           // the session
-        xfbml      : true,
-        version    : 'v2.1'
+    xfbml      : true,
+    version    : 'v2.1'
       });
+      ...
+```
 
 
 
   Project Roles on developers.facebook.com
 1) You will want to add all members of the project to the 'Roles' section in appropriate categories.  
+
 
 
 
