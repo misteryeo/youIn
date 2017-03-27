@@ -43,7 +43,7 @@ class OwnerDetailedView extends React.Component {
   }
 
   render() {
-    const friends = ['Anthony', 'David', 'Nick', 'Gus'];
+    const attendees = this.props.event.attendees;
 
     return (
       <div className="row list-item">
@@ -53,7 +53,7 @@ class OwnerDetailedView extends React.Component {
         </div>
         <div className="col-md-3">
           <ul>
-            {friends.map((friend, i) => <li key={i}>{friend}</li>)}
+            {attendees.map((attendee, i) => <li key={i}>{attendee.firstName}</li>)}
           </ul>
         </div>
         <button onClick={this.deleteEvent} className="btn-danger col-md-offset-1">Delete this Event</button>
