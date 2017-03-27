@@ -39,7 +39,7 @@ class OwnerDetailedView extends React.Component {
   deleteEvent () {
     console.log('event DELETED!');
     this.updateEventStatus('/delete/owner');
-    
+
   }
 
   render() {
@@ -56,7 +56,7 @@ class OwnerDetailedView extends React.Component {
             {attendees.map((attendee, i) => <li key={i}>{attendee.firstname}</li>)}
           </ul>
         </div>
-        <button onClick={this.deleteEvent} className="btn-danger col-md-offset-1">Delete this Event</button>
+        <button onClick={this.deleteEvent} id="owner-delete-button" className="col-md-offset-1">Delete this Event</button>
       </div>
     );
   }
