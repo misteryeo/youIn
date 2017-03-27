@@ -39,6 +39,8 @@ app.post('/reject', passport.authenticate('facebook-token'), handler.rejectEvent
 
 app.post('/delete', passport.authenticate('facebook-token'), handler.deleteEvent);
 
+app.post('/delete/owner', passport.authenticate('facebook-token'), handler.deleteOwnerEvent);
+
 app.get('/test', passport.authenticate('facebook-token'), function(req, res) {
   if (req.user) {
     res.status(200).json(

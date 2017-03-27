@@ -58,7 +58,9 @@ class Homepage extends React.Component {
           <div className='container events'>
             <br></br><br></br>
             <h2 id="my-events-title" className='header-inner'> My Events</h2>
-            <OwnerEventList  ownerEventsArr={this.props.ownerEvents} 
+            <OwnerEventList  
+            ownerEventsArr={this.props.ownerEvents} 
+            accessToken={this.props.accessToken}
             getEvents={this.props.getEvents}
             history={this.props.history}/>
           </div>
