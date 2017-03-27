@@ -16,6 +16,9 @@ class FriendEventListItem extends React.Component {
     this.handleClickListItem = this.handleClickListItem.bind(this);
     this.checkEventStatus = this.checkEventStatus.bind(this);
   }
+  componentDidMount() {
+    this.checkEventStatus();
+  }
   //Insert Methods Here
   handleClickListItem() {
     this.setState({clicked: !this.state.clicked});
@@ -67,7 +70,7 @@ class FriendEventListItem extends React.Component {
     let accepted = this.state.accepted === true ? "accepted" : null;
     let rejected = this.state.rejected === true ? "rejected" : null;
 
-    this.checkEventStatus();
+    
 
     return (
       <div>
