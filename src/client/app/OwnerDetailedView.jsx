@@ -53,7 +53,7 @@ class OwnerDetailedView extends React.Component {
         </div>
         <div className="col-md-3">
           <ul>
-            {attendees.map((attendee, i) => <li key={i}>{attendee.firstName}</li>)}
+            {attendees.map((attendee, i) => <li key={i}>{attendee.firstname}</li>)}
           </ul>
         </div>
         <button onClick={this.deleteEvent} className="btn-danger col-md-offset-1">Delete this Event</button>
