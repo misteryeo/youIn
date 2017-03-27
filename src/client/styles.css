@@ -215,3 +215,9 @@ button */
   background-color: #9fa3b7;
 }
 
+#owner-delete-button {
+  border-radius: 12px;
+  background-color: #f47927;
+  color: black;
+}
+
