@@ -2,6 +2,7 @@ import React from 'react';
 import OwnerEventList from './OwnerEventList.jsx';
 import FriendEventList from './FriendEventList.jsx';
 import CreateEventButton from './CreateEventButton.jsx';
+import InviteFriendButton from './InviteFriendButton.jsx';
 import LogoutButton from './LogoutButton.jsx';
 
 class Homepage extends React.Component {
@@ -50,6 +51,7 @@ class Homepage extends React.Component {
            <h2 id='userName'>Welcome <span id="headerName">{this.props.userName}</span></h2>
             <LogoutButton />
           </div>
+          <InviteFriendButton />
           <CreateEventButton
           history={this.props.history}
           friends={this.props.friends}
