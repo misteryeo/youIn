@@ -1,6 +1,5 @@
 import React from 'react';
 import {render} from 'react-dom';
-// import InviteeListEntry from './InviteeListEntry.jsx';
 
 const InviteeList = (props) => (
 	<div>

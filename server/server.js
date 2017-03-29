@@ -31,6 +31,10 @@ app.get('/users', handler.getUsers);
 
 app.post('/events/users', passport.authenticate('facebook-token'), handler.addUsersEvents);
 
+app.get('/invite', handler.getInvitees);
+
+app.post('/invite', handler.inviteFriends);
+
 app.post('/events/create', passport.authenticate('facebook-token'), handler.createEvent);
 
 app.post('/accept', passport.authenticate('facebook-token'), handler.acceptEvent);
