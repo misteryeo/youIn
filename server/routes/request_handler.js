@@ -11,4 +11,6 @@ module.exports.addUsersEvents = require('./add_users_events');
 module.exports.deleteOwnerEvent = require('./delete_owner_event');
 module.exports.checkStatus = require('./check_status');
 module.exports.inviteUsers = require('./invite_users');
+module.exports.getInvitees = require('./invitees');
+
 
