@@ -48,15 +48,13 @@ module.exports = (db) => {
   })
   .then(() => {
     return db.query('CREATE TABLE IF NOT EXISTS invites (\
-      invite_id BIGINT not null PRIMARY KEY,\
-      firstname varChar(50),\
-      lastname varChar(50),\
-      email varChar(50),\
-      user_id BIGINT not null')
+      id SERIAL not null PRIMARY KEY,\
+      name varChar(50),\
+      email varChar(50));')
   })
   .then(() => {
     return db.query('CREATE TABLE IF NOT EXISTS users_invites (\
       invite_id BIGINT not null,\
-      user_id BIGINT not null')
+      user_id BIGINT not null);')
   });
 };
