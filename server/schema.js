@@ -29,7 +29,6 @@ module.exports = (db) => {
       email varChar(50));')
   })
   .then(() => {
-
     return db.query('CREATE TABLE IF NOT EXISTS users_events (\
       event_id int not null,\
       user_id BIGINT not null,\
@@ -40,7 +39,6 @@ module.exports = (db) => {
       user1 BIGINT not null,\
       user2 BIGINT not null);')
   })
-
   .then(() => {
     return db.query('CREATE TABLE IF NOT EXISTS invites (\
       id SERIAL not null PRIMARY KEY,\
@@ -50,3 +48,4 @@ module.exports = (db) => {
       CONSTRAINT unique_email_to_user_id unique (user_id, email));')  
   })
 };
+
