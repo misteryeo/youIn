@@ -39,10 +39,6 @@ app.get('/users', handler.getUsers);
 
 app.post('/events/users', passport.authenticate('facebook-token'), handler.addUsersEvents);
 
-app.get('/invite', passport.authenticate('facebook-token'), handler.getInvitees);
-
-app.post('/invite', passport.authenticate('facebook-token'), handler.inviteFriends);
-
 app.post('/events/create', passport.authenticate('facebook-token'), handler.createEvent);
 
 app.post('/accept', passport.authenticate('facebook-token'), handler.acceptEvent);
@@ -56,10 +52,10 @@ app.post('/delete/owner', passport.authenticate('facebook-token'), handler.delet
 app.post('/checkStatus', passport.authenticate('facebook-token'), handler.checkStatus);
 
 
-//handle invites-related get and post requests 
+//handle invites-related get and post requests
 app.get('/invites', passport.authenticate('facebook-token'), handler.inviteeList);
 
-app.post('/invites', passport.authenticate('facebook-token'), handler.invites); 
+app.post('/invites', passport.authenticate('facebook-token'), handler.invites);
 
 
 
