@@ -16,7 +16,6 @@ class OwnerDetailedView extends React.Component {
 
   updateEventStatus(url) {
     // AJAX request to delete event from users list in the database
-    // console.log('yo', this.props.accessToken);
     $.ajax({
       url: url,
       method: 'POST',

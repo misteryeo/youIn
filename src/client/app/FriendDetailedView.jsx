@@ -36,7 +36,6 @@ class FriendDetailedView extends React.Component {
 
   updateEventStatus(url) {
     // AJAX request to delete event from users list in the database
-    // console.log('yo', this.props.accessToken);
     $.ajax({
       url: url,
       method: 'POST',
@@ -76,8 +75,6 @@ class FriendDetailedView extends React.Component {
   }
 
   render() {
-    //const friends = ['Anthony', 'David', 'Nick', 'Gus'];
-
     let inButtonText = this.state.accepted === false ? 'I\'m In' : 'I\'m In!';
     let outButtonText = this.state.rejected === false ? 'I\'m Out' : 'Delete';
     let acceptedId = this.state.accepted === true ? "accept-click" : null;
