@@ -40,13 +40,12 @@ module.exports = (db) => {
       user1 BIGINT not null,\
       user2 BIGINT not null);')
   })
-
   .then(() => {
     return db.query('CREATE TABLE IF NOT EXISTS invites (\
       id SERIAL not null PRIMARY KEY,\
       user_id BIGINT not null,\
       name varChar(50),\
       email varChar(50),\
-      CONSTRAINT unique_email_to_user_id unique (user_id, email));')  
+      CONSTRAINT unique_email_to_user_id unique (user_id, email));')
   })
 };

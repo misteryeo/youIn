@@ -9,8 +9,8 @@ class Facebook extends React.Component {
   componentDidMount() {
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : window.location.host === 'localhost:8080' ? '1897409527137678' : window.location.host === 'you-in.herokuapp.com' ? '1724251701198619' :'414888392204388',
-        cookie     : true,
+        appId      : window.location.host === 'localhost:8080' ? '133603993839631' : window.location.host === 'you-in.herokuapp.com' ? '1724251701198619' :'414888392204388',
+        cookie     : true,  // enable cookies to allow the server to access the session
         xfbml      : true,
         version    : 'v2.1'
       });

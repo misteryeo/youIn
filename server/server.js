@@ -5,6 +5,7 @@ let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
 let passport = require('./middleware/initPassport');
+let passporto = require('./middleware/googlePassport')
 let path = require('path');
 let handler = require('./routes/request_handler');
 
@@ -29,6 +30,13 @@ app.get('/events', passport.authenticate('facebook-token'), handler.getEvents);
 
 app.get('/users', handler.getUsers);
 
+// app.get('/auth/google/callback',
+//   passporto.authenticate('google', { failureRedirect: '/login' }),
+//   function(req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect('/');
+//   });
+
 app.post('/events/users', passport.authenticate('facebook-token'), handler.addUsersEvents);
 
 app.post('/events/create', passport.authenticate('facebook-token'), handler.createEvent);
@@ -44,10 +52,10 @@ app.post('/delete/owner', passport.authenticate('facebook-token'), handler.delet
 app.post('/checkStatus', passport.authenticate('facebook-token'), handler.checkStatus);
 
 
-//handle invites-related get and post requests 
+//handle invites-related get and post requests
 app.get('/invites', passport.authenticate('facebook-token'), handler.inviteeList);
 
-app.post('/invites', passport.authenticate('facebook-token'), handler.invites); 
+app.post('/invites', passport.authenticate('facebook-token'), handler.invites);
 
 
 

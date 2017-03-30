@@ -12,22 +12,22 @@ const database = 'youin';
 
 // });
 
-//let db = Promise.promisifyAll(connection, {multiArgs: true});
-if (process.env.PORT) {
-  pgp.pg.defaults.ssl = true;
-  
-  let db = pgp(process.env.DATABASE_URL);
-
-  makeSchema(db);
-  module.exports = db;
-} else {
+// let db = Promise.promisifyAll(connection, {multiArgs: true});
+// if (process.env.PORT) {
+  // pgp.pg.defaults.ssl = true;
+  //
+  // let db = pgp(process.env.DATABASE_URL);
+  //
+  // makeSchema(db);
+  // module.exports = db;
+// } else {
   let db = pgp({
     database: database
   });
 
   makeSchema(db);
   module.exports = db;
-}
+// }
 
 // }
 
