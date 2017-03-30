@@ -43,14 +43,9 @@ app.post('/delete/owner', passport.authenticate('facebook-token'), handler.delet
 
 app.post('/checkStatus', passport.authenticate('facebook-token'), handler.checkStatus);
 
-
-//handle invites-related get and post requests 
 app.get('/invites', passport.authenticate('facebook-token'), handler.inviteeList);
 
 app.post('/invites', passport.authenticate('facebook-token'), handler.invites); 
-
-
-
 
 app.get('/test', passport.authenticate('facebook-token'), function(req, res) {
   if (req.user) {
