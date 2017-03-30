@@ -2,7 +2,6 @@ import React from 'react';
 import OwnerEventList from './OwnerEventList.jsx';
 import FriendEventList from './FriendEventList.jsx';
 import CreateEventButton from './CreateEventButton.jsx';
-import CreateInviteButton from './CreateInviteButton.jsx';
 import LogoutButton from './LogoutButton.jsx';
 import Invite from './Invite.jsx';
 
