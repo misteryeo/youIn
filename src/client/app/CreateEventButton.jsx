@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import FriendsListItem from './FriendsListItem.jsx';
+import DatePicker from './DatePicker.jsx';
 import Modal from 'boron/DropModal';
 import $ from 'jquery';
 
@@ -185,6 +186,7 @@ class CreateEventButton extends React.Component {
                     onChange={this.handleChange.bind(this, 'date')}
                     type="date" required
                     />
+                  <DatePicker />
                   <input
                     value={this.state.time}
                     onChange={this.handleChange.bind(this, 'time')}
