@@ -1,9 +1,9 @@
 import React from 'react';
 import {render} from 'react-dom';
 import FriendsListItem from './FriendsListItem.jsx';
-import DatePicker from './DatePicker.jsx';
 import Modal from 'boron/DropModal';
 import $ from 'jquery';
+import DayPicker, { DateUtils } from 'react-day-picker';
 
 //trying to force a webpack build
 class CreateEventButton extends React.Component {
@@ -19,12 +19,14 @@ class CreateEventButton extends React.Component {
       time: '',
       min: '',
       invitees: {},
-      description: ''
+      description: '',
+      selectedDays: []
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.inviteFriend = this.inviteFriend.bind(this);
     this.addToUsers_Events = this.addToUsers_Events.bind(this);
+    this.handleDayClick = this.handleDayClick.bind(this);
 
   }
 
@@ -148,6 +150,19 @@ class CreateEventButton extends React.Component {
 
   }
 
+  handleDayClick(day, { selected }) {
+    const { selectedDays } = this.state;
+    if (selected) {
+      const selectedIndex = selectedDays.findIndex(selectedDay =>
+        DateUtils.isSameDay(selectedDay, day),
+      );
+      selectedDays.splice(selectedIndex, 1);
+    } else {
+      selectedDays.push(day);
+    }
+    this.setState({ selectedDays });
+    console.log(this.state.selectedDays)
+  }
 
 
   render () {
@@ -186,7 +201,10 @@ class CreateEventButton extends React.Component {
                     onChange={this.handleChange.bind(this, 'date')}
                     type="date" required
                     />
-                  <DatePicker />
+                  <DayPicker
+                    selectedDays={ this.state.selectedDays }
+                    onDayClick={ this.handleDayClick }
+                  />
                   <input
                     value={this.state.time}
                     onChange={this.handleChange.bind(this, 'time')}

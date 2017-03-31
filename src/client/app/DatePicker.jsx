@@ -1,13 +1,11 @@
 import React from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
-// import css from 'style-loader!css-loader!./file.css';
-// import css from 'react-day-picker/lib/style.css';
 
 export default class MultipleDays extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDays: [],
+      selectedDays: []
     }
 
     this.handleDayClick = this.handleDayClick.bind(this);
@@ -25,7 +23,6 @@ export default class MultipleDays extends React.Component {
       selectedDays.push(day);
     }
     this.setState({ selectedDays });
-  console.log('this date', this.state.selectedDays)
   }
 
 
