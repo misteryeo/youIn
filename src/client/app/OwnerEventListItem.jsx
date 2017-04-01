@@ -25,14 +25,18 @@ class OwnerEventListItem extends React.Component {
   }
 
   render() {
-    let date = moment(this.props.event.date);
+    
 
     return (
       <div>
       <div className="panel list-item row" onClick={this.handleClickListItem}>  
         <div className="glyphicon glyphicon-globe col-sm-1"></div>
         <div className="col-sm-4">{this.props.event.title}</div>
-        <div className="col-sm-4">{date.format('dddd D') + 'th'} at {this.props.event.time}</div>
+        <div className="col-sm-4">
+        {this.props.event.date.split(',').map((date, i) => (
+          <div key={i}><input type="radio"/> {date}</div>
+        ))}
+        </div>
         <div className="col-sm-3">{this.props.event.attendees.length}<span> people IN</span></div>
         <br/>
       </div>

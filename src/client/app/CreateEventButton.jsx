@@ -15,7 +15,6 @@ class CreateEventButton extends React.Component {
       title: '',
       what: 'food-drinks',
       where: '',
-      date: '',
       time: '',
       min: '',
       invitees: {},
@@ -129,7 +128,7 @@ class CreateEventButton extends React.Component {
       short_desc: this.state.what,
       description: this.state.description,
       location: this.state.where,
-      date: this.state.date,
+      date: this.state.selectedDays,
       time: this.state.time,
       min: this.state.min
     }
@@ -158,10 +157,11 @@ class CreateEventButton extends React.Component {
       );
       selectedDays.splice(selectedIndex, 1);
     } else {
-      selectedDays.push(day);
+      selectedDays.push(day);    
+      // Running into issues here .toString().replace('12:00:00 GMT-0800 (PST)')
     }
     this.setState({ selectedDays });
-    console.log(this.state.selectedDays)
+    console.log(this.state.selectedDays);
   }
 
 
