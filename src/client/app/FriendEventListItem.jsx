@@ -85,12 +85,12 @@ class FriendEventListItem extends React.Component {
         <div className={`${accepted} ${rejected} col-sm-3`}>{this.state.attendees}<span> people IN</span></div>
         <br/>
       </div>
-        {this.state.clicked ? <FriendDetailedView
+      <FriendDetailedView
           updateFriendEvents={this.props.updateFriendEvents}
           accessToken={this.props.accessToken}
           onIn={this.onAcceptClick.bind(this)}
           onOut={this.onRejectClick.bind(this)}
-          event={this.props.event}/> : '' }
+          event={this.props.event}/>
       </div>
     );
   }

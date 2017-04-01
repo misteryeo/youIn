@@ -33,14 +33,14 @@ class OwnerEventListItem extends React.Component {
         <div className="glyphicon glyphicon-globe col-sm-1"></div>
         <div className="col-sm-4">{this.props.event.title}</div>
         <div className="col-sm-4">
-        {this.props.event.date.split(',').map((date, i) => (
-          <div key={i}><input type="radio"/> {date}</div>
-        ))}
+          {this.props.event.date.split(',').map((date, i) => (
+            <div key={i}><input type="radio"/> {date}</div>
+          ))}
         </div>
         <div className="col-sm-3">{this.props.event.attendees.length}<span> people IN</span></div>
         <br/>
       </div>
-        {this.state.clicked ? <OwnerDetailedView accessToken={this.props.accessToken} event={this.props.event}/> : '' }
+        <OwnerDetailedView accessToken={this.props.accessToken} event={this.props.event}/>
       </div>
     );
   }
