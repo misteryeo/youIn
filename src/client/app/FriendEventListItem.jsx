@@ -77,7 +77,11 @@ class FriendEventListItem extends React.Component {
       <div className="panel list-item row" onClick={this.handleClickListItem}>
         <div className="glyphicon glyphicon-globe col-sm-1"></div>
         <div className={`${accepted} ${rejected} col-sm-4`}>{this.props.event.title}</div>
-        <div className={`${accepted} ${rejected} col-sm-4`}>{date.format('dddd D') + 'th'} at {this.props.event.time}</div>
+        <div className="col-sm-4">
+          {this.props.event.date.split(',').map((date, i) => (
+            <div key={i}><input type="radio"/> {date}</div>
+          ))}
+        </div>
         <div className={`${accepted} ${rejected} col-sm-3`}>{this.state.attendees}<span> people IN</span></div>
         <br/>
       </div>
