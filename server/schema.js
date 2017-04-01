@@ -16,7 +16,6 @@ module.exports = (db) => {
       description varChar(255),\
       location varChar(255),\
       date varchar(500),\
-      time TIME,\
       min INT);')
   })
   .then(() => {

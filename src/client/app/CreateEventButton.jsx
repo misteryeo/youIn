@@ -129,7 +129,6 @@ class CreateEventButton extends React.Component {
       description: this.state.description,
       location: this.state.where,
       date: this.state.selectedDays,
-      time: this.state.time,
       min: this.state.min
     }
   $.ajax({
