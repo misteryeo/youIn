@@ -46,4 +46,10 @@ module.exports = (db) => {
       email varChar(50),\
       CONSTRAINT unique_email_to_user_id unique (user_id, email));')
   })
+  .then(() => {
+    return db.query('CREATE TABLE IF NOT EXISTS dates (\
+      id SERIAL not null PRIMARY KEY,\
+      event_id int not null,\
+      date varChar(500));')  
+  })
 };

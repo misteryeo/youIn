@@ -56,6 +56,9 @@ app.post('/checkStatus', passport.authenticate('facebook-token'), handler.checkS
 app.get('/invites', passport.authenticate('facebook-token'), handler.inviteeList);
 
 app.post('/invites', passport.authenticate('facebook-token'), handler.invites);
+app.post('/invites', passport.authenticate('facebook-token'), handler.invites); 
+
+app.post('/dates', handler.dates);
 
 app.get('/test', passport.authenticate('facebook-token'), function(req, res) {
   if (req.user) {
