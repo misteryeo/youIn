@@ -1,16 +1,23 @@
 import React from 'react';
 import OwnerDetailedView from './OwnerDetailedView.jsx';
 import moment from 'moment';
+import $ from 'jquery';
 
 class OwnerEventListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false
+      clicked: false,
+      votes: ''
     }
     //bind methods here
     this.handleClickListItem = this.handleClickListItem.bind(this);
+    this.handleVotes = this.handleVotes.bind(this);
   }
+  componentDidMount() {
+    this.handleVotes();
+  }
+
   //Insert Methods Here
   handleClickListItem() {
     this.setState({clicked: !this.state.clicked});
@@ -25,7 +32,21 @@ class OwnerEventListItem extends React.Component {
   }
 
   handleVotes() {
-    
+    $.ajax({
+      url: '/dates',
+      method: 'GET',
+      success: (data) => {
+        console.log('Success handleVotes', data)
+        this.setState({
+          votes: data
+        }, () => {
+          console.log('hello', this.state.votes)
+        })
+      },
+      error: (err) => {
+        console.log('STATUS CHECK FAILED: ', err);
+      }
+    })
   }
 
   render() {
@@ -37,11 +58,13 @@ class OwnerEventListItem extends React.Component {
         <div className="glyphicon glyphicon-globe col-sm-1"></div>
         <div className="col-sm-4">{this.props.event.title}</div>
         <div className="col-sm-4">
-          {this.props.event.date.replace(/({|})/g,'').split(',').map((date, i) => (
-            <div key={i}>
-              <input type="radio" value={new Date(date).toDateString()} onClick={this.handleDate}/> {new Date(date).toDateString()}
-            </div>
+          <div>
+          { this.state.votes &&
+            this.state.votes.map((vote, i) => (
+            <li key={i}>{new Date(vote.date).toDateString()}: {vote.count}</li>
           ))}
+          </div>
+
         </div>
         <div className="col-sm-3">{this.props.event.attendees.length}<span> people IN</span></div>
         <br/>

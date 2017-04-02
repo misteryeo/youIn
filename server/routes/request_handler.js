@@ -13,4 +13,5 @@ module.exports.checkStatus = require('./check_status');
 module.exports.invites = require('./invites');
 module.exports.inviteeList = require('./invitee_list');
 module.exports.dates = require('./dates');
+module.exports.dateVotes = require('./dateVotes');
 
