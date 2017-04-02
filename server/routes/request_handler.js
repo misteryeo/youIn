@@ -14,4 +14,7 @@ module.exports.invites = require('./invites');
 module.exports.inviteeList = require('./invitee_list');
 module.exports.dates = require('./dates');
 module.exports.dateVotes = require('./dateVotes');
+module.exports.getUser = require('./get_user');
+module.exports.insertChat = require('./insert_chat');
+module.exports.getChat = require('./get_chat');
 

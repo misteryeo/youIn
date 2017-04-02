@@ -6,6 +6,8 @@ import InviteFriendButton from './InviteFriendButton.jsx';
 import LogoutButton from './LogoutButton.jsx';
 import Invite from './Invite.jsx';
 
+
+
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
