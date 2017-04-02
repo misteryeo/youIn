@@ -37,6 +37,7 @@ app.get('/users', handler.getUsers);
 //     res.redirect('/');
 //   });
 
+
 app.post('/events/users', passport.authenticate('facebook-token'), handler.addUsersEvents);
 
 app.post('/events/create', passport.authenticate('facebook-token'), handler.createEvent);
