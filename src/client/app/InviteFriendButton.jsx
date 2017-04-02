@@ -6,6 +6,12 @@ import $ from 'jquery';
 class InviteFriendButton extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      value: '',
+      name: '',
+      email: ''
+    }
+    this.inviteUsers = this.inviteUsers.bind(this);
   }
 
   showModal () {
@@ -16,8 +22,32 @@ class InviteFriendButton extends React.Component {
     this.refs.modal.hide();
   }
 
-  inviteUsers() {
-    console.log('Invite users method to link onclick')
+  handleChange(input, event) {
+    var newUser = {};
+    newUser[input] = event.target.value,
+    this.setState(newUser)
+  }
+
+  inviteUsers(event) {
+    let context = this;
+    var newUser = {
+      name: this.state.name,
+      email: this.state.email
+    }
+    console.log('New User', newUser)
+    $.ajax({
+      url: '/inviteUsers',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(newUser),
+      success: function(data) {
+        console.log('Invite success', data)
+        context.hideModal();
+      },
+      error: function(error) {
+        console.error('Error', error)
+      }
+    })
   }
 
   render() {
@@ -30,18 +60,12 @@ class InviteFriendButton extends React.Component {
             <div className="row">
               <div className="col-md-8">
                 <h4 className='create'>You know you want to:</h4>
-                Name: <input placeholder="Name"/><br />
-                Email: <input placeholder="Email"/><br />
-                Name: <input placeholder="Name"/><br />
-                Email: <input placeholder="Email"/><br />
-                Name: <input placeholder="Name"/><br />
-                Email: <input placeholder="Email"/><br />
-                Name: <input placeholder="Name"/><br />
-                Email: <input placeholder="Email"/><br />
+                Name: <input placeholder="Name" value={this.state.name} onChange={this.handleChange.bind(this, 'name')}/><br />
+                Email: <input placeholder="Email" value={this.state.email} onChange={this.handleChange.bind(this, 'email')}/><br />
                 <br />
               </div>
               <div className="col-md-12">
-                <button type="submit">Invite!</button>
+                <button type="submit" onClick={this.inviteUsers}>Invite!</button>
               </div>
             </div>
           </div>
