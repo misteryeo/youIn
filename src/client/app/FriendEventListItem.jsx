@@ -62,7 +62,6 @@ class FriendEventListItem extends React.Component {
 
 
   onRejectClick() {
-    console.log(typeof this.state.attendees);
     this.setState({ accepted: false, rejected: true, attendees: this.props.event.attendees.length });
   }
 

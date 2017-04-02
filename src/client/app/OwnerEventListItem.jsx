@@ -8,7 +8,7 @@ class OwnerEventListItem extends React.Component {
     super(props);
     this.state = {
       clicked: false,
-      votes: ''
+      result: ''
     }
     //bind methods here
     this.handleClickListItem = this.handleClickListItem.bind(this);
@@ -49,6 +49,12 @@ class OwnerEventListItem extends React.Component {
     })
   }
 
+  setResult(event) {
+    this.setState({
+      result: event.target.result
+    })
+  }
+
   render() {
     
 
@@ -61,7 +67,7 @@ class OwnerEventListItem extends React.Component {
           <div>
           { this.state.votes &&
             this.state.votes.map((vote, i) => (
-            <li key={i}>{new Date(vote.date).toDateString()}: {vote.count}</li>
+            <li key={i} result={new Date(vote.date).toDateString()} onClick={this.setResult}>{new Date(vote.date).toDateString()}: {vote.count}</li>
           ))}
           </div>
 
