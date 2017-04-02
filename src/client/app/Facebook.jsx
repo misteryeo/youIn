@@ -19,7 +19,6 @@ class Facebook extends React.Component {
         this.statusChangeCallback(response);
       }.bind(this));
     }.bind(this);
-
   }
   testAPI() {
     var check = this;
