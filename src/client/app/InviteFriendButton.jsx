@@ -53,7 +53,7 @@ class InviteFriendButton extends React.Component {
   render() {
     return(
       <div>
-      <div><button onClick={this.showModal.bind(this)}>Invite Friends</button></div>
+      <div><button onClick={this.showModal.bind(this)} id="create_event" className="col-md-4 col-md-offset-4">Invite Friends</button></div>
         <Modal ref="modal">
           <div className="container-fluid">
           <h2>Be awesome - invite your friends</h2>
