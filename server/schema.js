@@ -29,7 +29,6 @@ module.exports = (db) => {
       email varChar(50));')
   })
   .then(() => {
-
     return db.query('CREATE TABLE IF NOT EXISTS users_events (\
       event_id int not null,\
       user_id BIGINT not null,\
